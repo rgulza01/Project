@@ -1,7 +1,19 @@
 from application import db, app
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField, IntegerField, SelectField 
+from wtforms.validators import DataRequired, Length, Email 
 
+class UserForm(FlaskForm):
+    name_box = StringField("Enter your full name: ", validators=[DataRequired(), Length(min=1, max=80)])
+    email_box= StringField("Email address here: ", validators=[DataRequired(), Email()])
+    submit_button = SubmitField("Submit")
 
-'''db.Model classes here'''
+class User(db.Model):
+    __tablename__ = 'user'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(95), nullable=False)
+    email = db.Column(db.String(180), unique=True , nullable=False)
 
-if __name__ == "__main__":
-	app.run(debug=True)
+    def __repr__(self):
+        return f"User: {self.name}, {self.email}"
+
