@@ -1,6 +1,7 @@
+import email
 from flask import Flask, url_for, render_template, redirect, request, flash
 from application import app, db
-from application.models import UserForm
+from application.models import UserForm, User
 
 
 #Teal coloured templates provided by : copyright © Design template adopted from Gurupreeth Singh
@@ -12,12 +13,22 @@ def index():
 @app.route('/register', methods=["POST", "GET"])
 def register():
 	form = UserForm()
-	
 	if request.method == 'POST':
 		if form.validate_on_submit():
-			flash(f'Thank you for joining our gluten free community {form.name_box.data}! You should recieve a confirmation email soon', 'success')
-			return redirect(url_for('register')) 
-
+			#checks if email is in database and if there aren't, I add their info in the database
+			user = User.query.filter_by(email=form.email_box.data).first()
+			if user is None:
+				user = User(name=form.name_box.data, email=form.email_box.data)
+				db.session.add(user)
+				db.session.commit()
+				flash(f'Thank you for joining our gluten free community {form.name_box.data}! You should recieve a confirmation email soon', 'success')
+				return redirect(url_for('register')) 
+			elif(len(form.email_box.data) < 3):
+				flash(f'Email invalid', 'error')
+				return redirect(url_for('register'))
+			else:
+				flash(f'Your email address has already been used. Try logging in or use a different email address', 'error')
+				return redirect(url_for('register'))
 	return render_template('register2.html', form = form)
 
 @app.route("/login")
