@@ -15,7 +15,7 @@ def register():
 	form = UserForm()
 	if request.method == 'POST':
 		if form.validate_on_submit():
-			#checks if email is in database and if there aren't, I add their info in the database
+			#checks if email is in database and if it is not, I add the user's info in the database
 			user = User.query.filter_by(email=form.email_box.data).first()
 			if user is None:
 				user = User(name=form.name_box.data, email=form.email_box.data)
@@ -37,7 +37,8 @@ def login():
 
 @app.route("/dashboard")
 def dashboard():
-	return render_template('dashboard.html')
+	list_users = User.query.all()
+	return render_template('dashboard.html', list_users_in_html=list_users)
 
 @app.route("/addnewuser")
 def addnewuser():

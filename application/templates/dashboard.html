@@ -51,7 +51,7 @@
                           <th scope="col">User ID</th>
                           <th scope="col">Name</th>
                           <th scope="col">Email</th>
-                          <th scope="col">Social Media</th>
+                          <!-- <th scope="col">Social Media</th> -->
                           <th scope="col">Update</th>
                           <th scope="col">Delete</th>
                           <th scope="col">View Full Profile</th>
@@ -64,7 +64,6 @@
                           <td>{{ user['name'] }}</td>
                           <td>{{ user['email'] }}</td>
                           <td>{{ user['phone'] }}</td>
-                          <!-- <td>{{ user['address'] }}</td> -->
                           <td><a class="btn btn-sm" style="background-color:rgb(0, 75, 93); color:whitesmoke;" href="{{ url_for('fetchone', userid = user['userid'] )}}">Update</a></td>
                           <td><a class="btn btn-sm" style="background-color:rgb(0, 75, 93); color:whitesmoke;" href="{{ url_for('deleteuser', userid = user['userid'] )}}">Delete</a></td>
                           <td><a class="btn btn-sm" style="background-color:rgb(0, 75, 93); color:whitesmoke;" href="{{ url_for('singleuser', userid = user['userid'] )}}">View Full Profile</a></td>
@@ -73,8 +72,19 @@
                         <tr>
                       </tbody>
                 </table>
+                <!-- yet to decide what type of spacing would be better -->
+                <pre>
+                {%for u in list_users_in_html%} <p>   {{u.id}}                    {{u.name}}          {{u.email}}</p>
+                {%endfor%}
+                </pre>
+                {%for u in list_users_in_html%}
+                <p>&emsp;&emsp; {{u.id}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{u.name}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{u.email}}</p>
+                {%endfor%}
               </div>
         </div>
+
+        <br>
+        <br>
 
  
         <div class="child child7" style="background-color:rgb(0, 75, 93); color:whitesmoke;">
