@@ -9,3 +9,4 @@ SQLAlchemy==1.*
 Werkzeug==2.*
 zipp==3.*
 pymysql
+flask-wtf
