@@ -7,8 +7,8 @@ pipeline{
   stages{
     stage('setup'){
       steps{
-        sh 'export DATABASE_URI=$(DATABASE_URI)'
-        sh 'export SECRET_KEY=$(SECRET_KEY)'
+        sh "export DATABASE_URI=${DATABASE_URI}"
+        sh "export SECRET_KEY=${SECRET_KEY}"
         sh "sudo apt install python3-venv -y"
         sh "sudo apt install python3-pip -y"
         sh "python3 -m venv venv"
