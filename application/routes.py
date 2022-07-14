@@ -1,11 +1,14 @@
 import email
 from flask import Flask, url_for, render_template, redirect, request, flash
 from application import app, db
-from application.models import UserForm, User
+from application.models import UserForm, UserFormUpdate, User
 
 
-#Teal coloured templates provided by : copyright © Design template adopted from Gurupreeth Singh
-#to also mention in the ackowledgements part of README.md
+'''
+Teal coloured templates provided by : copyright © Design template adopted from Gurupreeth Singh: to also mention in the ackowledgements part of README.md
+However I have edited them fit the purpose of the application e.g. this is why there is some jinja2 syntax in the html templates.
+The bootstrap templates that inherit from a base html are made by me.
+'''
 @app.route("/")
 def index():
 	return render_template('home.html')
@@ -53,10 +56,25 @@ def dashboard():
 			 	
 # 	return render_template('login.html')
 
-# this is not working despite exising html, I would need to see how the page looks like
-# @app.route("/update")
-# def update():
-# 	return render_template('updateuser.html')
+
+@app.route("/update/<int:id>", methods=["POST", "GET"])
+def update(id):
+	form = UserFormUpdate()
+	if request.method == "POST":
+		updated = User.query.get(id)
+		updated.name = form.name_box.data
+		updated.email = form.email_box.data
+		if (len(updated.email) < 3):
+			flash(f'Email invalid', 'error')
+			return redirect(request.referrer)
+		elif form.validate_on_submit():
+			db.session.commit()
+			flash(f'Information has been updated successfully', 'success')
+			return redirect(request.referrer)
+		else:
+			flash(f'Email invalid', 'error')
+			return redirect(request.referrer)
+	return render_template('update2.html', form = form)
 
 @app.route("/delete/<int:id>", methods=["POST", "GET"])
 def delete(id): #id passed from URL

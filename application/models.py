@@ -8,6 +8,11 @@ class UserForm(FlaskForm):
     email_box= StringField("Email address here: ", validators=[DataRequired(), Email()])
     submit_button = SubmitField("Submit")
 
+class UserFormUpdate(FlaskForm):
+    name_box = StringField("Enter the new name: ", validators=[DataRequired(), Length(min=3, max=80)])
+    email_box= StringField("Enter the new email address: ", validators=[DataRequired(), Email()])
+    submit_button = SubmitField("Submit")
+
 class User(db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
