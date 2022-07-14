@@ -2,7 +2,7 @@ import email
 from application import db
 from application.models import *
 
-db.drop_all()
+#db.drop_all()
 db.create_all()
 
 user1 =User(name = "Bismillah", email = "bismillah@live.it")
