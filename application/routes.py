@@ -36,12 +36,36 @@ def dashboard():
 	list_users = User.query.all()
 	return render_template('dashboard.html', list_users_in_html=list_users)
 
-@app.route("/login")
-def login():
-	return render_template('login.html')
 
+# @app.route("/update/<int:id>", methods=["POST", "GET"])
+# def update(id): #id passed from URL
+# 	form = UserForm()
+# 	user_to_update = User.query.get_or_404(id)
+# 	#to verify if someone went to the page
+# 	if request.method == 'POST':
+# 		user_to_update.name = request.form['name_box']
+# 		user_to_update.email = request.form['email_box']
+# 		try:
+# 			db.session.commit()
+# 			flash(f'User updated successfully!', 'success')
+# 			return("update.html..?")
+# 		except:
+			 	
+# 	return render_template('login.html')
 
-# I will change this into add new post 
+# this is not working despite exising html, I would need to see how the page looks like
+# @app.route("/update")
+# def update():
+# 	return render_template('updateuser.html')
+
+@app.route("/delete/<int:id>", methods=["POST", "GET"])
+def delete(id): #id passed from URL
+	deleted = User.query.get(id)
+	db.session.delete(deleted)
+	db.session.commit()
+	return redirect(url_for('dashboard'))
+
+# I will change this into add new post instead 
 @app.route("/addnewuser")
 def addnewuser():
 	return render_template('addnewuser.html')
@@ -50,9 +74,9 @@ def addnewuser():
 def singleuserprofile():
 	return render_template('singleuser.html')
 
-@app.route("/update")
-def update():
-	return render_template('updateuser.html')
+@app.route("/login")
+def login():
+	return render_template('login.html')
 
 @app.route("/logout")
 def logout():

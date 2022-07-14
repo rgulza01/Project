@@ -74,11 +74,11 @@
                 </table>
                 <!-- yet to decide in which format to list the users -->
                 <pre>
-                {%for u in list_users_in_html%} <p>   {{u.id}}                    {{u.name}}          {{u.email}}</p>
+                {%for u in list_users_in_html%} <p>   {{u.id}}                    {{u.name}}          {{u.email}} <a href="{{url_for('delete', id = u.id)}}">                           <button>Delete</button> </p></a> 
                 {%endfor%}
                 </pre>
                 {%for u in list_users_in_html%}
-                <p>&emsp;&emsp; {{u.id}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{u.name}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{u.email}}</p>
+                <p>&emsp;&emsp; {{u.id}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{u.name}} &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; {{u.email}}  &emsp;&emsp;&emsp;&emsp; &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; <a href="{{url_for('delete', id = u.id)}}"><button>Delete</button> </p></a>
                 {%endfor%}
               </div>
         </div>
