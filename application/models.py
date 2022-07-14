@@ -4,7 +4,7 @@ from wtforms import StringField, SubmitField, IntegerField, SelectField
 from wtforms.validators import DataRequired, Length, Email 
 
 class UserForm(FlaskForm):
-    name_box = StringField("Enter your full name: ", validators=[DataRequired(), Length(min=1, max=80)])
+    name_box = StringField("Enter your full name: ", validators=[DataRequired(), Length(min=3, max=80)])
     email_box= StringField("Email address here: ", validators=[DataRequired(), Email()])
     submit_button = SubmitField("Submit")
 

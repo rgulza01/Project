@@ -31,15 +31,17 @@ def register():
 				return redirect(url_for('register'))
 	return render_template('register2.html', form = form)
 
-@app.route("/login")
-def login():
-	return render_template('login.html')
-
 @app.route("/dashboard")
 def dashboard():
 	list_users = User.query.all()
 	return render_template('dashboard.html', list_users_in_html=list_users)
 
+@app.route("/login")
+def login():
+	return render_template('login.html')
+
+
+# I will change this into add new post 
 @app.route("/addnewuser")
 def addnewuser():
 	return render_template('addnewuser.html')
@@ -55,3 +57,12 @@ def update():
 @app.route("/logout")
 def logout():
 	return render_template('home.html')
+
+#----------------Custom error page----------------
+@app.errorhandler(404)
+def pageNotFound(error_parameter):
+    return render_template('404.html'), 404
+
+@app.errorhandler(500)
+def serverError(error_parameter):
+    return render_template('500.html'), 500
