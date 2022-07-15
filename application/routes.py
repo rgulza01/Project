@@ -90,6 +90,12 @@ def posts():
 	posts=Post.query.order_by(Post.date_posted)
 	return render_template('posts.html', posts_for_html=posts)
 
+@app.route("/posts/<int:id>")
+def apost(id):
+	#finding the page or displaying error
+	post=Post.query.get_or_404(id)
+	return render_template('apost.html', post_for_html=post)
+
 @app.route("/singleuser")
 def singleuserprofile():
 	return render_template('singleuser.html')
