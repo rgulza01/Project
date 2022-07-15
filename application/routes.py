@@ -1,7 +1,7 @@
 import email
 from flask import Flask, url_for, render_template, redirect, request, flash
 from application import app, db
-from application.models import UserForm, UserFormUpdate, User
+from application.models import Post, UserForm, UserFormUpdate, User, PostForm
 
 
 '''
@@ -40,22 +40,6 @@ def dashboard():
 	return render_template('dashboard.html', list_users_in_html=list_users)
 
 
-# @app.route("/update/<int:id>", methods=["POST", "GET"])
-# def update(id): #id passed from URL
-# 	form = UserForm()
-# 	user_to_update = User.query.get_or_404(id)
-# 	#to verify if someone went to the page
-# 	if request.method == 'POST':
-# 		user_to_update.name = request.form['name_box']
-# 		user_to_update.email = request.form['email_box']
-# 		try:
-# 			db.session.commit()
-# 			flash(f'User updated successfully!', 'success')
-# 			return("update.html..?")
-# 		except:
-			 	
-# 	return render_template('login.html')
-
 
 @app.route("/update/<int:id>", methods=["POST", "GET"])
 def update(id):
@@ -83,10 +67,18 @@ def delete(id): #id passed from URL
 	db.session.commit()
 	return redirect(url_for('dashboard'))
 
-# I will change this into add new post instead 
-@app.route("/addnewuser")
-def addnewuser():
-	return render_template('addnewuser.html')
+
+@app.route("/addnewpost", methods=['GET', 'POST'])
+def addnewpost():
+	form = PostForm()
+	if form.validate_on_submit():
+		post = Post(title=form.title_box.data, content=form.content_box.data, author=form.author_box.data, slug=form.slug_box.data)
+		db.session.add(post)
+		db.session.commit()
+		flash(f'Post submitted successfully!', 'success')	
+		return redirect(request.referrer)
+		
+	return render_template('addnewpost.html', form = form)
 
 @app.route("/singleuser")
 def singleuserprofile():
