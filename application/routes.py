@@ -61,8 +61,9 @@ def update(id):
 	return render_template('update2.html', form = form)
 
 @app.route("/delete/<int:id>", methods=["POST", "GET"])
-def delete(id): #id passed from URL
-	deleted = User.query.get(id)
+def delete(id):
+	#checks if it's in the database first and if it is not it returns the custom 404 page
+	deleted = User.query.get_or_404(id)
 	db.session.delete(deleted)
 	db.session.commit()
 	return redirect(url_for('dashboard'))
@@ -72,7 +73,9 @@ def delete(id): #id passed from URL
 def addnewpost():
 	form = PostForm()
 	if form.validate_on_submit():
-		post = Post(title=form.title_box.data, content=form.content_box.data, author=form.author_box.data, slug=form.slug_box.data)
+		#query to retrieve the user
+		userToFind = User.query.filter_by(name=form.author_box.data).first()
+		post = Post(title=form.title_box.data, content=form.content_box.data, author=form.author_box.data, slug=form.slug_box.data, user=userToFind)
 		if db.session.query(User.id).filter_by(name=post.author).first() is None:
 			flash(f"You're not signed up with us! Sign up first to submit any posts", 'error')
 			return redirect(request.referrer)
@@ -89,6 +92,21 @@ def posts():
 	#displaying all posts from the database
 	posts=Post.query.order_by(Post.date_posted)
 	return render_template('posts.html', posts_for_html=posts)
+
+@app.route("/posts/delete/<int:id>", methods=["POST", "GET"])
+def deletepost(id): 
+	#checks if it's in the database first and if it is not it returns the custom 404 page
+	deleted = Post.query.get_or_404(id)
+	try:
+		db.session.delete(deleted)
+		db.session.commit()
+		flash(f'Post deleted successfully!', 'success')	
+		posts=Post.query.order_by(Post.date_posted)
+		return render_template('posts.html', posts_for_html=posts)
+	except:
+		flash(f'Oops! There was a problem deleting the post. Try again later', 'error')	
+		posts=Post.query.order_by(Post.date_posted)
+		return render_template('posts.html', posts_for_html=posts)
 
 @app.route("/posts/<int:id>")
 def apost(id):

@@ -2,7 +2,7 @@ import email
 from application import db
 from application.models import *
 
-#db.drop_all()
+db.drop_all()
 db.create_all()
 
 # user1 =User(name = "Bismillah", email = "bismillah@live.it")
@@ -10,9 +10,10 @@ db.create_all()
 # user3 =User(name = "Shakalaka", email = "shakalaka@gmail.com")
 # db.session.add_all([user1, user2, user3])
 
-post1=Post(title="A very gluten free post", content="An extremely gluten-free paragraph made with maple syrup instead of sugar. Fiamanillah.", author="Authorative Author", slug="first post")
-db.session.add(post1)
-db.session.commit()
+# ----------I can't do one to many with the backref like I am used to anymore--------
+                                                                                                            #backref=
+# post2=Post(title="An utterly vegan post", content="Vegan stories and more", author="budi", slug="budi post", user=?)
+# db.session.add(post2)
+# db.session.commit()
 
-#-----------------------------------------queries-----------------------------------------
 

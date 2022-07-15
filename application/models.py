@@ -21,6 +21,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(95), nullable=False)
     email = db.Column(db.String(180), unique=True , nullable=False)
+    posts=db.relationship('Post', backref='user') 
 
     def __repr__(self):
         return f"User: {self.name}, {self.email}"
@@ -41,3 +42,4 @@ class Post(db.Model):
     author = db.Column(db.String(190))
     date_posted = db.Column(db.DateTime, default=datetime.utcnow)
     slug = db.Column(db.String(200))
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'), nullable=False)

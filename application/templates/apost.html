@@ -14,5 +14,6 @@
 </div>
  
 <a href="{{url_for('posts')}}" class="btn btn-outline-secondary btn-sm">Back to Blog</a>
+<a href="{{url_for('deletepost', id=post_for_html.id)}}" class="btn btn-outline-danger btn-sm">Delete</a>
 
 {%endblock body%} 
