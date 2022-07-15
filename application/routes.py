@@ -84,6 +84,12 @@ def addnewpost():
 		
 	return render_template('addnewpost.html', form = form)
 
+@app.route("/posts")
+def posts():
+	#displaying all posts from the database
+	posts=Post.query.order_by(Post.date_posted)
+	return render_template('posts.html', posts_for_html=posts)
+
 @app.route("/singleuser")
 def singleuserprofile():
 	return render_template('singleuser.html')
