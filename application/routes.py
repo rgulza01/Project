@@ -73,10 +73,14 @@ def addnewpost():
 	form = PostForm()
 	if form.validate_on_submit():
 		post = Post(title=form.title_box.data, content=form.content_box.data, author=form.author_box.data, slug=form.slug_box.data)
-		db.session.add(post)
-		db.session.commit()
-		flash(f'Post submitted successfully!', 'success')	
-		return redirect(request.referrer)
+		if db.session.query(User.id).filter_by(name=post.author).first() is None:
+			flash(f"You're not signed up with us! Sign up first to submit any posts", 'error')
+			return redirect(request.referrer)
+		else:
+			db.session.add(post)
+			db.session.commit()
+			flash(f'Post submitted successfully!', 'success')	
+			return redirect(request.referrer)
 		
 	return render_template('addnewpost.html', form = form)
 
