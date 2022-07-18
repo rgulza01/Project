@@ -6,6 +6,16 @@ from wtforms import StringField, SubmitField
 from wtforms.widgets import TextArea 
 from wtforms.validators import DataRequired, Length, Email 
 
+class User(db.Model):
+    __tablename__ = 'user'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(95), nullable=False)
+    email = db.Column(db.String(180), unique=True , nullable=False)
+    posts=db.relationship('Post', backref='user') 
+
+    def __repr__(self):
+        return f"User: {self.name}, {self.email}"
+        
 class UserForm(FlaskForm):
     name_box = StringField("Enter your full name (this will also be the name you use to post very gluten free stories): ", validators=[DataRequired(), Length(min=3, max=80)])
     email_box= StringField("Email address here: ", validators=[DataRequired(), Email()])
@@ -16,15 +26,6 @@ class UserFormUpdate(FlaskForm):
     email_box= StringField("Enter the new email address: ", validators=[DataRequired(), Email()])
     submit_button = SubmitField("Submit")
 
-class User(db.Model):
-    __tablename__ = 'user'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(95), nullable=False)
-    email = db.Column(db.String(180), unique=True , nullable=False)
-    posts=db.relationship('Post', backref='user') 
-
-    def __repr__(self):
-        return f"User: {self.name}, {self.email}"
 
 #attempting to set up a blog post for a possibile realtionship soon 
 class PostForm(FlaskForm):
