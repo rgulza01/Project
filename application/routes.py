@@ -1,5 +1,5 @@
 import email
-from flask import Flask, url_for, render_template, redirect, request, flash
+from flask import Flask, session, url_for, render_template, redirect, request, flash
 from application import app, db
 from application.models import Post, UserForm, UserFormUpdate, User, PostForm
 
@@ -89,7 +89,15 @@ def addnewpost():
 
 @app.route("/posts")
 def posts():
-	#displaying all posts from the database
+	"""
+	#with error_parameter as in posts(error_parameter), displaying all posts from the database if they exist
+    rows = Post.query.count()
+    if rows == 0:
+        return render_template('404ForNoPostsYet'), 404
+    else:
+        posts=Post.query.order_by(Post.date_posted)
+        return render_template('posts.html', posts_for_html=posts)
+	"""
 	posts=Post.query.order_by(Post.date_posted)
 	return render_template('posts.html', posts_for_html=posts)
 
@@ -108,9 +116,9 @@ def deletepost(id):
 		posts=Post.query.order_by(Post.date_posted)
 		return render_template('posts.html', posts_for_html=posts)
 
+@app.errorhandler(404)
 @app.route("/posts/<int:id>")
 def apost(id):
-	#finding the page or displaying error
 	post=Post.query.get_or_404(id)
 	return render_template('apost.html', post_for_html=post)
 
@@ -130,6 +138,7 @@ def logout():
 @app.errorhandler(404)
 def pageNotFound(error_parameter):
     return render_template('404.html'), 404
+
 
 @app.errorhandler(500)
 def serverError(error_parameter):
