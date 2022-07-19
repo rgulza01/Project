@@ -4,10 +4,11 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3' 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://radiagulzan@db-relationship-practice-mysql:Password123!@db-relationship-practice-mysql.mysql.database.azure.com:3306/project_db' 
+# set up to run on local machine:
+app.config['SQLALCHEMY_DATABASE_URI']=f"mysql+pymysql://radiagulzan@db-relationship-practice-mysql:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('SERVER_NAME')}:3306/project_db"
 app.config['SECRET_KEY'] = 'DUMMY_FOR_TESTING'
 
+#set up to run on Jenkins
 # app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
 # app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
 
