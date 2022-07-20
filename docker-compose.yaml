@@ -8,7 +8,9 @@ services:
       # args:
         # DATABASE_URI: ${DATABASE_URI}
     environment:
-      DATABASE_URI: ${DATABASE_URI}
+      # DATABASE_URI: ${DATABASE_URI}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      SERVER_NAME: ${SERVER_NAME}
       SECRET_KEY: ${SECRET_KEY}
     deploy: 
       replicas: 3

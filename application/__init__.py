@@ -6,12 +6,14 @@ app = Flask(__name__)
 
 # set up to run on local machine:
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
-# app.config['SQLALCHEMY_DATABASE_URI']=f"mysql+pymysql://radiagulzan@db-relationship-practice-mysql:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('SERVER_NAME')}:3306/project_db"
 # app.config['SECRET_KEY'] = 'DUMMY_FOR_TESTING'
 
 #set up to run on Jenkins
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
+app.config['SQLALCHEMY_DATABASE_URI']=f"mysql+pymysql://radiagulzan@db-relationship-practice-mysql:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('SERVER_NAME')}:3306/project_db"
+
+#facing again the sqlalchemy.exc.ArgumentError: Could not parse rfc1738 URL from string ''
+# app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URI')
 
 
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
