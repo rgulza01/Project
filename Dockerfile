@@ -5,7 +5,7 @@ RUN pip3 install -r requirements.txt
 
 ENV DATABASE_URI=${DATABASE_URI}
 #ARG DATABASE_URI
-#RUN python3 create.py 
+RUN python3 create.py 
 
 ENV SECRET_KEY=${SECRET_KEY}
 

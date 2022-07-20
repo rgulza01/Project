@@ -23,7 +23,7 @@ pytest==7.*
 pytest-cov==3.*
 pytest-flask==1.*
 SQLAlchemy==1.*
-tomli==2.*
+tomli==1.*
 Werkzeug==2.*
 WTForms==3.*
 zipp==3.*
