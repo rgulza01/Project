@@ -1,19 +1,45 @@
-import email
 from application import db
 from application.models import *
+from application.forms import *
 
 db.drop_all()
 db.create_all()
 
-# user1 =User(name = "Bismillah", email = "bismillah@live.it")
-# user2 =User(name = "Bambi", email = "bambi@outlook.com")
-# user3 =User(name = "Shakalaka", email = "shakalaka@gmail.com")
-# db.session.add_all([user1, user2, user3])
+user1 =User(name = "Bismillah", email = "bismillah@live.it")
+user2 =User(name = "Bambi", email = "bambi@outlook.com")
+user3 =User(name = "Lily", email = "lily@outlook.com")
 
-# ----------I can't do one to many with the backref like I am used to anymore--------
-                                                                                                            #backref=
-# post2=Post(title="An utterly vegan post", content="Vegan stories and more", author="budi", slug="budi post", user=?)
-# db.session.add(post2)
-# db.session.commit()
+post1=Post(author=user1.name, title="An utterly vegan post", content="Vegan stories and more", slug="post1")
+post2=Post(author=user1.name, title="An untimate sugar free post", content="Sugar free stories and more", slug="post2")
+post3=Post(author=user3.name, title="Maple syrup stories", content="Many words and many more", slug="post3")
+
+user1.posts.append(post1)
+user1.posts.append(post2)
+user3.posts.append(post2)
+user3.posts.append(post3)
+
+
+db.session.add_all([user1, user2, user3, post1, post2, post3])
+db.session.commit()
+
+#----------------------------------testing many to many----------------------------------
+
+#Something like this needs to happen when the user is updated
+previous_user3_name = user3.name 
+new_user3_name = "Little Cupcake"
+
+user3.name = new_user3_name
+list_posts = Post.query.all()
+for p in list_posts:
+    if p.author == previous_user3_name:
+        p.author = new_user3_name
+
+db.session.commit()
+
+print("---------------------------------------------------------")
+print(f"{user3.name}'s followed posts:")
+for p in user3.posts:
+    print(p)
+
 
 

@@ -3,6 +3,7 @@ from flask import url_for
 import app
 from application import *
 from application.models import *
+from application.forms import *
 
 
 class TestBase(TestCase):

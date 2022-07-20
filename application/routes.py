@@ -1,8 +1,7 @@
-import email
-from flask import Flask, session, url_for, render_template, redirect, request, flash
+from flask import url_for, render_template, redirect, request, flash
 from application import app, db
-from application.models import Post, UserForm, UserFormUpdate, User, PostForm
-
+from application.models import *
+from application.forms import *
 
 '''
 Teal coloured templates provided by : copyright © Design template adopted from Gurupreeth Singh: to also mention in the ackowledgements part of README.md
@@ -37,17 +36,26 @@ def register():
 @app.route("/dashboard")
 def dashboard():
 	list_users = User.query.all()
+	# list_posts = Post.query.all() list_posts_in_html = list_posts
 	return render_template('dashboard.html', list_users_in_html=list_users)
 
 
-
+#-------------------------to uodate for when the username is updated-------------------------
 @app.route("/update/<int:id>", methods=["POST", "GET"])
 def update(id):
 	form = UserFormUpdate()
 	if request.method == "POST":
-		updated = User.query.get(id)
-		updated.name = form.name_box.data
+		updated = User.query.get_or_404(id)
+		previous_user_name = updated.name 
+		updated.name = form.name_box.data #new name
 		updated.email = form.email_box.data
+
+		# list_posts = Post.query.all() # I can't query like this with FlaskForm directly because there is no query or all for a FlaskForm
+		# for p in list_posts:
+		# 	print(p)
+		# 	if p.author == previous_user_name:
+		# 		p.author = updated.name
+
 		if (len(updated.email) < 3):
 			flash(f'Email invalid', 'error')
 			return redirect(request.referrer)
@@ -59,12 +67,17 @@ def update(id):
 			flash(f'Email invalid', 'error')
 			return redirect(request.referrer)
 	return render_template('update2.html', form = form)
-
+# ------------------------------------------------------------------------------------------
 @app.route("/delete/<int:id>", methods=["POST", "GET"])
 def delete(id):
 	#checks if it's in the database first and if it is not it returns the custom 404 page
-	deleted = User.query.get_or_404(id)
-	db.session.delete(deleted)
+	userToDelete = User.query.get_or_404(id)
+	#checks if the user had any posts, if it does, it deletes the posts before deleting the user
+	filtered_posts_by_user = Post.query.filter_by(author = userToDelete.name).all()
+	if len(filtered_posts_by_user) >= 1:
+		for p in filtered_posts_by_user:
+			db.session.delete(p)
+	db.session.delete(userToDelete)
 	db.session.commit()
 	return redirect(url_for('dashboard'))
 
