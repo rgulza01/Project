@@ -20,7 +20,7 @@ pipeline{
       steps{
         //   check syntax for tags 
         sh "docker-compose build"
-        sh "docker push radiagulzan/feature_1_image"
+        sh "docker push radiagulzan/feature_2_image"
         sh "docker stack deploy --compose-file docker-compose.yaml stack_name"
       }
     }
