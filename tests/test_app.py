@@ -8,7 +8,8 @@ from application.forms import *
 
 class TestBase(TestCase):
     def create_app(self):
-        app.config.update(SQLALCHEMY_DATABASE_URI=f"mysql+pymysql://radiagulzan@db-relationship-practice-mysql:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('SERVER_NAME')}:3306/test_db",
+        #app.config.update(SQLALCHEMY_DATABASE_URI=f"mysql+pymysql://radiagulzan@db-relationship-practice-mysql:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('SERVER_NAME')}:3306/test_db",
+        app.config.update(SQLALCHEMY_DATABASE_URI= 'sqlite:///db.sqlite3',
         SECRET_KEY='TEST_SECRET_KEY',
         DEBUG=True,
         WTF_CSRF_ENABLED=False)
