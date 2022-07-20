@@ -36,7 +36,6 @@ def register():
 @app.route("/dashboard")
 def dashboard():
 	list_users = User.query.all()
-	# list_posts = Post.query.all() list_posts_in_html = list_posts
 	return render_template('dashboard.html', list_users_in_html=list_users)
 
 
@@ -50,11 +49,11 @@ def update(id):
 		updated.name = form.name_box.data #new name
 		updated.email = form.email_box.data
 
-		# list_posts = Post.query.all() # I can't query like this with FlaskForm directly because there is no query or all for a FlaskForm
-		# for p in list_posts:
-		# 	print(p)
-		# 	if p.author == previous_user_name:
-		# 		p.author = updated.name
+		list_posts = Post.query.all()
+		for p in list_posts:
+			print(p)
+			if p.author == previous_user_name:
+				p.author = updated.name
 
 		if (len(updated.email) < 3):
 			flash(f'Email invalid', 'error')
@@ -87,7 +86,7 @@ def addnewpost():
 	form = PostForm()
 	if form.validate_on_submit():
 		#query to retrieve the user
-		userToFind = User.query.filter_by(name=form.author_box.data).first()
+		userToFind = User.query.filter_by(name=form.author_box.data).all()
 		post = Post(title=form.title_box.data, content=form.content_box.data, author=form.author_box.data, slug=form.slug_box.data, user=userToFind)
 		if db.session.query(User.id).filter_by(name=post.author).first() is None:
 			flash(f"You're not signed up with us! Sign up first to submit any posts", 'error')
@@ -102,15 +101,6 @@ def addnewpost():
 
 @app.route("/posts")
 def posts():
-	"""
-	#with error_parameter as in posts(error_parameter), displaying all posts from the database if they exist
-    rows = Post.query.count()
-    if rows == 0:
-        return render_template('404ForNoPostsYet'), 404
-    else:
-        posts=Post.query.order_by(Post.date_posted)
-        return render_template('posts.html', posts_for_html=posts)
-	"""
 	posts=Post.query.order_by(Post.date_posted)
 	return render_template('posts.html', posts_for_html=posts)
 

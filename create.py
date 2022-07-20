@@ -26,8 +26,13 @@ db.session.commit()
 
 #Something like this needs to happen when the user is updated
 previous_user3_name = user3.name 
-new_user3_name = "Little Cupcake"
 
+print("---------------------------------------------------------")
+print(f"{user3.name}'s followed posts:")
+for p in user3.posts:
+    print(p)
+    
+new_user3_name = "Little Cupcake"
 user3.name = new_user3_name
 list_posts = Post.query.all()
 for p in list_posts:
@@ -36,7 +41,7 @@ for p in list_posts:
 
 db.session.commit()
 
-print("---------------------------------------------------------")
+print("-----------------------------------")
 print(f"{user3.name}'s followed posts:")
 for p in user3.posts:
     print(p)
