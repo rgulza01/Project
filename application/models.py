@@ -21,7 +21,8 @@ class User(db.Model):
 class Post(db.Model):
     __tablename__ = 'post'
     id = db.Column(db.Integer, primary_key=True)
-    author = db.Column('author', db.String(190), db.ForeignKey('user.name'))
+    # author = db.Column('author', db.String(95), db.ForeignKey('user.name'))
+    author = db.Column('author', db.String(95))
     title = db.Column(db.String(300))
     content = db.Column(db.Text(700))
     date_posted = db.Column(db.DateTime, default=datetime.utcnow)

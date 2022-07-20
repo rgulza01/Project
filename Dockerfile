@@ -10,7 +10,7 @@ ENV SECRET_KEY=${SECRET_KEY}
 
 #ARG DATABASE_URI
 
-RUN python3 create.py 
+# RUN python3 create.py 
 
 
 EXPOSE 5001

@@ -9,6 +9,7 @@ user1 =User(name = "Bismillah", email = "bismillah@live.it")
 user2 =User(name = "Bambi", email = "bambi@outlook.com")
 user3 =User(name = "Lily", email = "lily@outlook.com")
 
+
 post1=Post(author=user1.name, title="An utterly vegan post", content="Vegan stories and more", slug="post1")
 post2=Post(author=user1.name, title="An untimate sugar free post", content="Sugar free stories and more", slug="post2")
 post3=Post(author=user3.name, title="Maple syrup stories", content="Many words and many more", slug="post3")
