@@ -39,7 +39,6 @@ def dashboard():
 	return render_template('dashboard.html', list_users_in_html=list_users)
 
 
-#-------------------------to uodate for when the username is updated-------------------------
 @app.route("/update/<int:id>", methods=["POST", "GET"])
 def update(id):
 	form = UserFormUpdate()
@@ -66,6 +65,15 @@ def update(id):
 			flash(f'Email invalid', 'error')
 			return redirect(request.referrer)
 	return render_template('update2.html', form = form)
+#-------------------------to search-------------------------
+@app.context_processor
+def base():
+	form = UserForm()
+	return dict(form=form)
+
+@app.route("/filter", methods=["POST"])
+def filter():
+	pass
 # ------------------------------------------------------------------------------------------
 @app.route("/delete/<int:id>", methods=["POST", "GET"])
 def delete(id):
