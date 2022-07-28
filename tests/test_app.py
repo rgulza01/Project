@@ -1,6 +1,6 @@
 from flask import render_template, url_for
 from flask_testing import TestCase
-import app
+from application import app, db
 from application import *
 from application.models import *
 from application.forms import *
@@ -9,7 +9,8 @@ from application.forms import *
 class TestBase(TestCase):
     def create_app(self):
         app.config.update(
-            SQLALCHEMY_DATABASE_URI=f"mysql+pymysql://radiagulzan@db-relationship-practice-mysql:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('SERVER_NAME')}:3306/test_db",
+            # SQLALCHEMY_DATABASE_URI=f"mysql+pymysql://radiagulzan@db-relationship-practice-mysql:{os.getenv('DATABASE_PASSWORD')}@{os.getenv('SERVER_NAME')}:3306/test_db",
+            SQLALCHEMY_DATABASE_URI='sqlite:///db.sqlite3',
             SECRET_KEY='TEST_SECRET_KEY',
             DEBUG=False,
             WTF_CSRF_ENABLED=False
@@ -32,36 +33,52 @@ class TestBase(TestCase):
         # Create table schema
         db.create_all()
         
-        # Create test objects
+        global test_user1, test_user2
         test_user1 = User(name = "Test User", email = "testuser@live.it")
         test_user2 = User(name = "Alif", email = "alif@live.it")
+        
+        db.session.add(test_user1)
+        db.session.add(test_user2)
+        db.session.commit()
 
+        global test_post1, test_post2, test_post3, test_post4
         test_post1 = Post(author=test_user1.name, title="An utterly testy post", content="Testy stories and more", slug="testpost1")
         test_post2 = Post(author=test_user2.name, title="Alif's GF sister", content="Cooking for a GF sister experience", slug="testpost2")
         test_post3 = Post(author=test_user2.name, title="Alif's heavenly vegan cake", content="Vegan cake made of cloud", slug="testpost3")
         test_post4 = Post(author=test_user1.name, title="A sugarless post", content="For testing", slug="testpost4")
 
-        # save sample data to database
-        db.session.add_all([test_user1, test_user2, test_post1, test_post2, test_post3, test_post4])
+        db.session.add(test_post1)
+        db.session.add(test_post2)
+        db.session.add(test_post3)
+        db.session.add(test_post4)
         db.session.commit()
 
-    def tearDown(self):
-        db.session.remove()
-        db.drop_all()
-#--------------------------------models not working----------------------------
+        test_user1.posts.append(test_post1)
+        test_user2.posts.append(test_post2)
+        test_user2.posts.append(test_post3)
+        test_user1.posts.append(test_post4)
+        db.session.commit()
+
+        #--------------------------------teardown not besing used for now, to check the database----------------------------
+    # def tearDown(self):
+    #     db.session.remove()
+    #     db.drop_all()
+
 class TestModels(TestBase):
     def test_User_model(self):
-        assert f"{User.test_user1.__repr__()}" == "User: Test User, testuser@live.it"   
-        assert f"{User.test_user2.__repr__()}" == "User: Alif, alif@live.it"  
+        
+        assert f"{test_user1.__repr__()}" == "User: Test User, testuser@live.it"   
+        assert f"{test_user2.__repr__()}" == "User: Alif, alif@live.it"  
+        
         self.assertEqual(User.query.count(), 2)
 
     def test_Post_model(self):
-        assert f"{Post.test_post1.__repr__()}" == "Title: An utterly testy post"
+        assert f"{test_post1.__repr__()}" == "Title: An utterly testy post"
         assert len(Post.query.all()) == 4
     
     def test_user_post_model(self):
-        assert User.test_user2.posts[0].title == "Alif's GF sister"
-        assert len(User.test_user2.posts) == 2
+        assert test_user2.posts[0].title == "Alif's GF sister"
+        assert len(test_user2.posts) == 2
 
 class TestRoutes(TestBase):
     def test_addnewpost(self):
@@ -100,21 +117,25 @@ class TestRoutes(TestBase):
         response = self.client.get(url_for('index'))
         self.assertEqual(response.status_code, 200)
 
-#--------------------------------as models are not, CRUD is not working either----------------------------
+#--------------------------------CRUD---------------------------
 
 class TestCRUD(TestBase):
     def test_update_user(self):
-        User.test_user1.name = "Little Cupcake"
+        previous_user1_name = test_user1.name
+        new_user1_name = "Little Cupcake"
+        test_user1.name = new_user1_name
+        list_posts = Post.query.all()
+        for p in list_posts:
+            if p.author == previous_user1_name:
+                p.author = new_user1_name
         db.session.commit()
-
-        #checking if the assignement happened in the posts by the user too
-        self.assertEqual(User.test_user1.name, Post.test_post1.author)
-        self.assertEqual(User.test_user1.posts[1].title, "A sugarless post")
-        assert len(User.test_user1.posts) == 2
+        self.assertEqual(test_user1.posts[1].title, "A sugarless post")
+        self.assertEqual(test_user1.name, test_post1.author)
+        assert len(test_user1.posts) == 2
 
     def test_delete_user(self):
         all_users = User.query.count()
-        userToDelete = User.query.get_or_404(User.test_user1)
+        userToDelete = test_user1
 
         userToDelete_name = userToDelete.name
         #checks if the user had any posts, if it does, it deletes the posts before deleting the user
