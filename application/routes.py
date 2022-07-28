@@ -4,13 +4,24 @@ from application.models import *
 from application.forms import *
 
 '''
-Teal coloured templates provided by : copyright © Design template adopted from Gurupreeth Singh: to also mention in the ackowledgements part of README.md
-However I have edited them fit the purpose of the application e.g. this is why there is some jinja2 syntax in the html templates.
-The bootstrap templates that inherit from a base html are made by me.
+Home page and dashabord adopted by Gurupreeth Singh. 
+Rest of the UI made by me on Flask Form.
 '''
 @app.route("/")
 def index():
 	return render_template('home.html')
+
+#----------------Custom error pages----------------
+
+@app.errorhandler(404)
+def pageNotFound(error_parameter):
+    return render_template('404.html'), 404
+
+
+@app.errorhandler(500)
+def serverError(error_parameter):
+    return render_template('500.html'), 500
+#--------------------------------------------------
 
 @app.route('/register', methods=["POST", "GET"])
 def register():
@@ -29,7 +40,7 @@ def register():
 				flash(f'Email invalid', 'error')
 				return redirect(url_for('register'))
 			else:
-				flash(f'Your email address has already been used. Try logging in or use a different email address', 'error')
+				flash(f'Your email address has already been used. Try registering in or use a different email address', 'error')
 				return redirect(url_for('register'))
 	return render_template('register2.html', form = form)
 
@@ -38,6 +49,39 @@ def dashboard():
 	list_users = User.query.all()
 	return render_template('dashboard.html', list_users_in_html=list_users)
 
+@app.route("/posts")
+def posts():
+	posts=Post.query.order_by(Post.date_posted)
+	return render_template('posts.html', posts_for_html=posts)
+	
+@app.route("/posts/<int:id>")
+def apost(id):
+	post=Post.query.get_or_404(id)
+	return render_template('apost.html', post_for_html=post)
+
+@app.route("/login")
+def login():
+	return render_template('login.html')
+
+@app.route("/logout")
+def logout():
+	return render_template('home.html')
+
+#-------------------------- under construction-------------------------
+@app.context_processor
+def base():
+	form = UserForm()
+	return dict(form=form)
+
+@app.route("/filter", methods=["POST"])
+def filter():
+	pass
+
+# @app.route("/singleuser")
+# def singleuserprofile():
+# 	return render_template('singleuser.html')
+# ----------------------------------------------------------------------
+#-----------------------------------------------------------CRUD--------------------------------------------------------
 
 @app.route("/update/<int:id>", methods=["POST", "GET"])
 def update(id):
@@ -65,16 +109,7 @@ def update(id):
 			flash(f'Email invalid', 'error')
 			return redirect(request.referrer)
 	return render_template('update2.html', form = form)
-#-------------------------to search-------------------------
-@app.context_processor
-def base():
-	form = UserForm()
-	return dict(form=form)
 
-@app.route("/filter", methods=["POST"])
-def filter():
-	pass
-# ------------------------------------------------------------------------------------------
 @app.route("/delete/<int:id>", methods=["POST", "GET"])
 def delete(id):
 	#checks if it's in the database first and if it is not it returns the custom 404 page
@@ -107,10 +142,6 @@ def addnewpost():
 		
 	return render_template('addnewpost.html', form = form)
 
-@app.route("/posts")
-def posts():
-	posts=Post.query.order_by(Post.date_posted)
-	return render_template('posts.html', posts_for_html=posts)
 
 @app.route("/posts/delete/<int:id>", methods=["POST", "GET"])
 def deletepost(id): 
@@ -127,30 +158,5 @@ def deletepost(id):
 		posts=Post.query.order_by(Post.date_posted)
 		return render_template('posts.html', posts_for_html=posts)
 
-@app.errorhandler(404)
-@app.route("/posts/<int:id>")
-def apost(id):
-	post=Post.query.get_or_404(id)
-	return render_template('apost.html', post_for_html=post)
-
-@app.route("/singleuser")
-def singleuserprofile():
-	return render_template('singleuser.html')
-
-@app.route("/login")
-def login():
-	return render_template('login.html')
-
-@app.route("/logout")
-def logout():
-	return render_template('home.html')
-
-#----------------Custom error page----------------
-@app.errorhandler(404)
-def pageNotFound(error_parameter):
-    return render_template('404.html'), 404
 
 
-@app.errorhandler(500)
-def serverError(error_parameter):
-    return render_template('500.html'), 500

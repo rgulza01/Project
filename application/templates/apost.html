@@ -1,15 +1,12 @@
 {%extends "base.html"%}
 {%block body%}
    <br>
-   <h1 style="color:teal;">Our gluten free community's blog posts</h1>
+   <h1 style="color:teal;">{{post_for_html.title }} </h1>
    <br>
  
 <div class="shadow p-3 mb-5 bg-body rounded">
-    <h2>{{post_for_html.title }} <br></h2>
-    <h6 style="color:darkcyan;"> By: {{post_for_html.author }} <br></h6>
-    <small>
-        {{post_for_html.date_posted }} <br><br>
-    </small>
+    <h3> Author: {{post_for_html.author }} <br></h3>
+    <h6 style="color:darkcyan;"> {{post_for_html.date_posted }} <br></h6>
     {{post_for_html.content }} <br><br>
 </div>
  

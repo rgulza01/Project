@@ -28,24 +28,40 @@ db.session.commit()
 #Something like this needs to happen when the user is updated
 previous_user3_name = user3.name 
 
-print("---------------------------------------------------------")
-print(f"{user3.name}'s followed posts:")
-for p in user3.posts:
-    print(p)
+print("--------------------------------------------------------------------")
+# print(f"{user3.name}'s followed posts:")
+# for p in user3.posts:
+#     print(p)
     
-new_user3_name = "Little Cupcake"
-user3.name = new_user3_name
-list_posts = Post.query.all()
-for p in list_posts:
-    if p.author == previous_user3_name:
-        p.author = new_user3_name
+# new_user3_name = "Little Cupcake"
+# user3.name = new_user3_name
+# list_posts = Post.query.all()
+# for p in list_posts:
+#     if p.author == previous_user3_name:
+#         p.author = new_user3_name
 
-db.session.commit()
+# db.session.commit()
 
-print("-----------------------------------")
-print(f"{user3.name}'s followed posts:")
-for p in user3.posts:
-    print(p)
+# print("-----------------------------------")
+# print(f"{user3.name}'s followed posts:")
+# for p in user3.posts:
+#     print(p)
 
+# user3_posts_from_post_model = Post.query.filter_by(author=user3.name).first()
+# print(user3_posts_from_post_model)
+"""
+[Title: Maple syrup stories]
+ONE MISSING:
+Title: An untimate sugar free post
+"""
+# print(len(user3.posts) == 2)
+# print(User.query.filter_by(name="Bismillah").all())
 
+# print("-----------------------------------")
+# print(user3.posts[0])
+# print(post3.author == new_user3_name)
 
+# print(user3.posts[1].title == "Maple syrup stories")
+
+posts_filter = Post.query.filter_by(author = "Bismillah").all()
+print(posts_filter)
