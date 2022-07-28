@@ -6,5 +6,4 @@ You can download the video of the application even if it shows it's in processin
 README.md under construction. Will be updated soon.
 
 
-**Branch "feature-2" is the most recent branch.
-**
+Branch "feature-2" is the most recent branch.
