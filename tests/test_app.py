@@ -100,14 +100,11 @@ class TestRoutes(TestBase):
             response = self.client.get(url_for('dashboard'))
             self.assertEqual(response.status_code, 200)
     
-    # def test_posts(self):
-    #     response = self.client.get(url_for('register')) 
-    #     self.assertEqual(response.status_code, 200) 
-    #     self.assertIn(b"Our gluten free community's blog posts", response.data)
+    def test_posts(self):
+        response = self.client.get(url_for('posts')) 
+        self.assertEqual(response.status_code, 200) 
+        self.assertIn(b"Our gluten free community's blog posts", response.data)
     
-    # def test_apost(self):
-    #         response = self.client.get(url_for('apost'))
-    #         self.assertEqual(response.status_code, 200)
 
     def test_login(self):
         response = self.client.get(url_for('login'))

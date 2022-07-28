@@ -53,6 +53,7 @@ def dashboard():
 def posts():
 	posts=Post.query.order_by(Post.date_posted)
 	return render_template('posts.html', posts_for_html=posts)
+	
 @app.route("/posts/<int:id>")
 def apost(id):
 	post=Post.query.get_or_404(id)
