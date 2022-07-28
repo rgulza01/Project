@@ -8,4 +8,4 @@ Video of the application (https://drive.google.com/file/d/1jDsBuJcY1nH1vObXD8Zp3
 #### README.md under construction. Will be updated soon.
 
 
-###Branch "feature-2" is the most recent branch.
+### Branch "feature-2" is the most recent branch.
