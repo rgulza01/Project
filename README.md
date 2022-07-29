@@ -21,9 +21,13 @@ In the following section I present the use case diagram based on the initial req
 <img width="966" alt="image" src="https://user-images.githubusercontent.com/56838325/181710190-f2c62d6b-c5ab-4881-872a-aa1be93f4536.png">
 <img width="1255" alt="image" src="https://user-images.githubusercontent.com/56838325/181709937-46fc6dd1-c5e0-4d39-a082-708ad3a7448f.png">
 
-## Application video
-### The video of the application shows how the application has been deployed on the Jenkins pipeline and on Docker Swarm: (https://drive.google.com/drive/folders/1gDfpDnDfW4baTHSugsVtHZDcIRwRToIk
-) 
+# Application video
+### The video of the application shows how the application has been deployed on the Jenkins pipeline and on Docker Swarm: (
+https://drive.google.com/drive/folders/1gDfpDnDfW4baTHSugsVtHZDcIRwRToIk
+### I have included a document with the console output from Jenkins.
+### Docker images can be checked on hub:
+<img width="980" alt="image" src="https://user-images.githubusercontent.com/56838325/181712053-6fea499a-7eba-44ca-addd-2468527ab57c.png">
+
 
 ## User stories 
 I have worked in differnet iterations to implement product features, based on their values, for a better understanding of why users might want a certain functionality.
