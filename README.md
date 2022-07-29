@@ -68,7 +68,8 @@ The code has been refactored in several occasions. Below are some of the example
 
 ### - Refactoring tests for higher coverage
 * from 
-<img width="1058" alt="image" src="https://user-images.githubusercontent.com/56838325/181735954-97c21fad-630f-48af-b7de-53aa373cb9ba.png">
+<img width="829" alt="image" src="https://user-images.githubusercontent.com/56838325/181736150-63606910-6fdd-4594-98ed-01964581236b.png">
+
 * to
 <img width="1107" alt="image" src="https://user-images.githubusercontent.com/56838325/181736004-392e5c83-c48c-4ade-80b4-11527102a33e.png">
 
