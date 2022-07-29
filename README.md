@@ -62,6 +62,10 @@ The code has been refactored in several occasions. Below are some of the example
 * to
 <img width="839" alt="image" src="https://user-images.githubusercontent.com/56838325/181733487-baabf3c2-3bed-4143-b49b-087b1158a973.png">
 
+### - Refactoring nginx for the container that was not running despite the SUCCESS shown in the pipeline
+
+<img width="1250" alt="image" src="https://user-images.githubusercontent.com/56838325/181735538-ca3412f3-7293-4ead-9410-fc03df9af05e.png">
+
 ### - Refactoring Jenkins Pipeline from compose to swarm
 * from 
 <img width="535" alt="image" src="https://user-images.githubusercontent.com/56838325/181734231-3067cfdb-6678-430c-ba4e-f44ab2146729.png">
