@@ -13,4 +13,9 @@ In the following section I present the use case diagram based on the initial req
 
 <img width="941" alt="image" src="https://user-images.githubusercontent.com/56838325/181687042-740ce418-b1e8-4938-8aec-57ed271a86dd.png">
 
+## User stories 
+I have worked in differnet iterations to implement product features, based on their values, for a better understanding of why users might want a certain functionality.
+
+<img width="1404" alt="image" src="https://user-images.githubusercontent.com/56838325/181693104-a0b059c9-e672-4e23-9bd2-b4b73464e667.png">
+
 
