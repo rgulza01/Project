@@ -47,7 +47,7 @@ db.session.commit()
 # for p in user3.posts:
 #     print(p)
 
-print(user3.name)
+# print(user3.name)
 print(post3.author)
 
 # print(len(user3.posts) == 2)

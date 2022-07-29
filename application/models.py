@@ -7,9 +7,6 @@ from application import db
 user_post = db.Table('user_post',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
     db.Column('post_id', db.Integer, db.ForeignKey('post.id'), primary_key=True),
-    db.Column('user_name', db.Integer, db.ForeignKey('user.name')),
-    db.Column('post_author', db.Integer, db.ForeignKey('post.author')),
-
 )
 
 class User(db.Model):

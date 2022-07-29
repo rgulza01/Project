@@ -1,7 +1,6 @@
 pipeline{
   agent any
   environment{
-      // DATABASE_URI = credentials('DATABASE_URI')
       DATABASE_PASSWORD = credentials('DATABASE_PASSWORD')
       SERVER_NAME = credentials('SERVER_NAME')
       SECRET_KEY = credentials('SECRET_KEY')
