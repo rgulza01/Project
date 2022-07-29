@@ -51,7 +51,7 @@ Software projects are challenging due to the complexity of the product, nonlinea
 <img width="1014" alt="image" src="https://user-images.githubusercontent.com/56838325/181717264-9f63e572-8380-4307-a049-5240f1646cf1.png">
 
 ## ORM relationship: many-to-many
-<img width="820" alt="image" src="https://user-images.githubusercontent.com/56838325/181731652-4981739e-d63d-44f7-8cfd-491b0dcc5fef.png">
+<img width="815" alt="image" src="https://user-images.githubusercontent.com/56838325/181731961-7db85938-91c7-4a68-a4b7-ea6130b3613d.png">
 
 ## Refactoring
 The code has been refactored in several occasions. Below are some of the examples:
