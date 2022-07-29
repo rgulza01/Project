@@ -62,11 +62,26 @@ The code has been refactored in several occasions. Below are some of the example
 * to
 <img width="839" alt="image" src="https://user-images.githubusercontent.com/56838325/181733487-baabf3c2-3bed-4143-b49b-087b1158a973.png">
 
+# Refactoring
+The code has been refactored in several occasions. Below are some of the examples:
+### - Refactoring the layout of the html template
+* from 
+<img width="731" alt="image" src="https://user-images.githubusercontent.com/56838325/181733314-7c6cfffe-0ae0-4519-8284-73f331618414.png">
+
+* to
+<img width="839" alt="image" src="https://user-images.githubusercontent.com/56838325/181733487-baabf3c2-3bed-4143-b49b-087b1158a973.png">
+
+### - Refactoring database relationship from one to many to many to many
+* from 
+<img width="499" alt="image" src="https://user-images.githubusercontent.com/56838325/181737567-974dc77d-5417-4e0b-ba43-b11a2ae749c6.png">
+* to
+<img width="519" alt="image" src="https://user-images.githubusercontent.com/56838325/181737620-4873e705-af7d-4e96-a620-2472f691a7bf.png">
+
 ### - Refactoring nginx for the container that was not running despite the SUCCESS shown in the Jenkins pipeline
 
 <img width="1250" alt="image" src="https://user-images.githubusercontent.com/56838325/181735538-ca3412f3-7293-4ead-9410-fc03df9af05e.png">
 
-### - Refactoring tests for higher coverage
+### - Refactoring tests for higher unit testing coverage
 * from 
 <img width="829" alt="image" src="https://user-images.githubusercontent.com/56838325/181736150-63606910-6fdd-4594-98ed-01964581236b.png">
 
