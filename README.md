@@ -40,7 +40,10 @@ Ongoing for feature-3.
 
 ## Risk management
 In the risk assessment table I first identify risks and consider whether they are event driven, evolving, technical or non-technical, on top of examining the risk triggers in advance. In the second column I assess the impacts of the risks following the equation:
-* Risk impact = risk likelihood x  risk consequences [39]
+* Risk impact = risk likelihood x  risk consequences
+<img width="454" alt="image" src="https://user-images.githubusercontent.com/56838325/181714482-26ea2c8f-9776-44a4-9910-ed13eabdec7c.png">
+With the given numbers I derive a relative measure to be able to then rank the risks to focus on the ‘critical’ ones first, following RAG grading. The third column is a list of possible approaches to the risks: either by avoidance, by deflection (or transfer) or by contingency. 
+
 
 ## Technology Readiness Levels (TRL)
 Software projects are challenging due to the complexity of the product, nonlinear scaling of resources, measurement of project and product, initial uncertainty in project and product scope, and knowledge gained as a project evolves. Technology Readiness Levels (TRL) are a type of measurement system used to assess the maturity level of a particular technology.  By the completion of the project, STSTEM is at TRL 4, see table below:
