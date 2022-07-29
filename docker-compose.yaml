@@ -1,12 +1,17 @@
 version: "3.8"
 services:
   app_container:
-    image: radiagulzan/feature_1_image:latest
+    image: radiagulzan/feature_2_image:latest
     container_name: app_container
     build: 
       context: ./
-      args:
-        DATABASE_URI: ${DATABASE_URI}
+      # args:
+        # DATABASE_URI: ${DATABASE_URI}
+    environment:
+      # DATABASE_URI: ${DATABASE_URI}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      SERVER_NAME: ${SERVER_NAME}
+      SECRET_KEY: ${SECRET_KEY}
     deploy: 
       replicas: 3
     ports:

@@ -1,0 +1,16 @@
+{%extends "base.html"%}
+{%block body%}
+   <br>
+   <h1 style="color:teal;">{{post_for_html.title }} </h1>
+   <br>
+ 
+<div class="shadow p-3 mb-5 bg-body rounded">
+    <h3> Author: {{post_for_html.author }} <br></h3>
+    <h6 style="color:darkcyan;"> {{post_for_html.date_posted }} <br></h6>
+    {{post_for_html.content }} <br><br>
+</div>
+ 
+<a href="{{url_for('posts')}}" class="btn btn-outline-secondary btn-sm">Back to Blog</a>
+<a href="{{url_for('deletepost', id=post_for_html.id)}}" class="btn btn-outline-danger btn-sm">Delete</a>
+
+{%endblock body%} 
