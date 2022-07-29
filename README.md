@@ -77,10 +77,10 @@ The code has been refactored in several occasions. Below are some of the example
 * from having the docker compose stage
 <img width="535" alt="image" src="https://user-images.githubusercontent.com/56838325/181734231-3067cfdb-6678-430c-ba4e-f44ab2146729.png">
 
-* to making a single step for swarm (the full pipeline can be viewed in the Jenkinsfile)
-<img width="505" alt="image" src="https://user-images.githubusercontent.com/56838325/181734308-53cde08d-f130-4d6a-b68b-0b2334ce91cd.png">
+* to making a single step for swarm 
+<img width="755" alt="image" src="https://user-images.githubusercontent.com/56838325/181747797-2d5aae31-c022-4d24-a9dd-53eb4c067985.png">
 
-The pipeline eventually ensures that the application setup is done including the configurations and necessariry installations from requirements.txt . The final step is to build the docker-compose, push the image on dockerhub and deploy the docker stack. The video includes more discussion and demonstration of the pipeline, among other things. 
+The pipeline therefore ensures that the application setup is done including the configurations and necessariry installations from requirements.txt . The final step is to build the docker-compose, push the image on dockerhub and deploy the docker stack. The video includes more discussion and demonstration of the pipeline, among other things. 
 
 ### - Refactoring Dockerfile, docker-compose and Jenkinsfile after inserting Azure credentials
 
