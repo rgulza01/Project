@@ -25,7 +25,7 @@ Docker images can be checked on hub:
 
 
 ## User stories 
-I have worked in differnet iterations to implement product features, based on their values, for a better understanding of why users might want a certain functionality.
+I have worked in various iterations to implement product features, based on their values, for a better understanding of why users might want a certain functionality.
 
 <img width="1416" alt="image" src="https://user-images.githubusercontent.com/56838325/181702730-5845e0b2-7e58-4c7f-a17a-1aab8f84004a.png">
 
