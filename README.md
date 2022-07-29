@@ -6,7 +6,6 @@ In the following section I present the use case diagram based on the initial req
 <img width="941" alt="image" src="https://user-images.githubusercontent.com/56838325/181687042-740ce418-b1e8-4938-8aec-57ed271a86dd.png">
 
 <img width="955" alt="image" src="https://user-images.githubusercontent.com/56838325/181744544-1d44692f-c236-411d-93f5-e2445d7dce5a.png">
-<img width="961" alt="image" src="https://user-images.githubusercontent.com/56838325/181705304-d0eaeab0-9caa-4711-88d1-7787e28214e1.png">
 <img width="1381" alt="image" src="https://user-images.githubusercontent.com/56838325/181705353-2b3dccbd-e021-4c9e-bfbb-c42278a48235.png">
 <img width="968" alt="image" src="https://user-images.githubusercontent.com/56838325/181707021-e85648b5-c42d-4ba4-8641-2be8d708a97e.png">
 <img width="1348" alt="image" src="https://user-images.githubusercontent.com/56838325/181705849-6f6f9c72-a995-49c5-99ad-aa2f502e9a91.png">
