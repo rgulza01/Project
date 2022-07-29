@@ -55,16 +55,16 @@ Software projects are challenging due to the complexity of the product, nonlinea
 
 ## Refactoring
 The code has been refactored in several occasions. Below are some of the examples:
-##### Refactoring the layout of the html template
-from 
+### - Refactoring the layout of the html template
+* from 
 <img width="731" alt="image" src="https://user-images.githubusercontent.com/56838325/181733314-7c6cfffe-0ae0-4519-8284-73f331618414.png">
 
-to
+* to
 <img width="839" alt="image" src="https://user-images.githubusercontent.com/56838325/181733487-baabf3c2-3bed-4143-b49b-087b1158a973.png">
-##### Refactoring Jenkins pipeline
-from
+### - Refactoring Jenkins pipeline
+* from 
 <img width="535" alt="image" src="https://user-images.githubusercontent.com/56838325/181734231-3067cfdb-6678-430c-ba4e-f44ab2146729.png">
-to 
+* to 
 <img width="505" alt="image" src="https://user-images.githubusercontent.com/56838325/181734308-53cde08d-f130-4d6a-b68b-0b2334ce91cd.png">
 
 
