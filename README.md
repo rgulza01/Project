@@ -1,5 +1,4 @@
 # DevOps project for QA - GF FLASK
-### Branch "feature-2" is the most recent branch.
 A monolithic web application to help celiac form a community where they can share gluten free recipees and stories about their gluten free life. Technologies utilised include: Azure database, Azure VM, Jenkins, Docker, Docker-compose, Docker-Swarm.
 
 ## Use cases:
