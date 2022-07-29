@@ -1,10 +1,15 @@
 import datetime
 from datetime import datetime
+
+from sqlalchemy import ForeignKey
 from application import db
 
 user_post = db.Table('user_post',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
-    db.Column('post_id', db.Integer, db.ForeignKey('post.id'), primary_key=True)
+    db.Column('post_id', db.Integer, db.ForeignKey('post.id'), primary_key=True),
+    db.Column('user_name', db.Integer, db.ForeignKey('user.name')),
+    db.Column('post_author', db.Integer, db.ForeignKey('post.author')),
+
 )
 
 class User(db.Model):
@@ -27,6 +32,7 @@ class Post(db.Model):
     content = db.Column(db.Text(700))
     date_posted = db.Column(db.DateTime, default=datetime.utcnow)
     slug = db.Column(db.String(200))
+    users = db.relationship('User', secondary=user_post, backref='post')
 
 
     def __repr__(self):
