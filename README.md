@@ -1,7 +1,6 @@
-# Project
+# DevOps project for QA
 
-Video of the application (https://drive.google.com/drive/folders/1gDfpDnDfW4baTHSugsVtHZDcIRwRToIk
-) 
+
 #### README.md under construction. Will be updated soon...
 
 
@@ -22,7 +21,9 @@ In the following section I present the use case diagram based on the initial req
 <img width="966" alt="image" src="https://user-images.githubusercontent.com/56838325/181710190-f2c62d6b-c5ab-4881-872a-aa1be93f4536.png">
 <img width="1255" alt="image" src="https://user-images.githubusercontent.com/56838325/181709937-46fc6dd1-c5e0-4d39-a082-708ad3a7448f.png">
 
-
+## Application video
+### The video of the application shows how the application has been deployed on the Jenkins pipeline and on Docker Swarm: (https://drive.google.com/drive/folders/1gDfpDnDfW4baTHSugsVtHZDcIRwRToIk
+) 
 
 ## User stories 
 I have worked in differnet iterations to implement product features, based on their values, for a better understanding of why users might want a certain functionality.
