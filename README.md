@@ -83,7 +83,7 @@ The code has been refactored in several occasions. Below are some of the example
 
 The pipeline therefore ensures that the application setup is done including the configurations and necessariry installations from requirements.txt . The final step is to build the docker-compose, push the image on dockerhub and deploy the docker stack. The video includes more discussion and demonstration of the pipeline, among other things. 
 
-### - Refactoring Dockerfile, docker-compose and Jenkinsfile after inserting Azure credentials
+### - Refactoring Dockerfile, docker-compose and Jenkinsfile after adding Jenkins credentials for implementing an Azure database
 
 <img width="309" alt="image" src="https://user-images.githubusercontent.com/56838325/181735353-6d72aa05-597d-4ff0-83b0-510773b81d4e.png">
 <img width="381" alt="image" src="https://user-images.githubusercontent.com/56838325/181735044-32cf4c2a-132b-44f0-84f9-5b999047b2c2.png">
