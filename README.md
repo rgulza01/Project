@@ -61,9 +61,11 @@ The code has been refactored in several occasions. Below are some of the example
 
 * to
 <img width="839" alt="image" src="https://user-images.githubusercontent.com/56838325/181733487-baabf3c2-3bed-4143-b49b-087b1158a973.png">
+
 ### - Refactoring Jenkins Pipeline from compose to swarm
 * from 
 <img width="535" alt="image" src="https://user-images.githubusercontent.com/56838325/181734231-3067cfdb-6678-430c-ba4e-f44ab2146729.png">
+
 * to 
 <img width="505" alt="image" src="https://user-images.githubusercontent.com/56838325/181734308-53cde08d-f130-4d6a-b68b-0b2334ce91cd.png">
 
