@@ -9,6 +9,6 @@ Video of the application (https://drive.google.com/drive/folders/1gDfpDnDfW4baTH
 
 ### User stories:
 
-<img width="966" alt="image" src="https://user-images.githubusercontent.com/56838325/181686958-0c875835-6245-4e28-a732-47b9af6c5c57.png">
+<img width="941" alt="image" src="https://user-images.githubusercontent.com/56838325/181687042-740ce418-b1e8-4938-8aec-57ed271a86dd.png">
 
 
