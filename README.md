@@ -92,6 +92,6 @@ The code has been refactored in several occasions. Below are some of the example
 <img width="381" alt="image" src="https://user-images.githubusercontent.com/56838325/181735044-32cf4c2a-132b-44f0-84f9-5b999047b2c2.png">
 <img width="319" alt="image" src="https://user-images.githubusercontent.com/56838325/181735246-74704776-9269-416e-8ded-41069036bb99.png">
 
-
-
-
+# Acknowledgements
+I would like to express my most sincere appreciation to Earl Gray - DevOps specialisation trainer - for pushing the boundaries of my capabilities, positively contributing to the project's growth since the idea's inception.
+I would also like to mention that the beautiful teal coloured html templates have been adopted from Gurupreeth Singh. I had the fortune of learning how to use opensource technologies such as Bootstrap to complete the rest of the application by creating templates with Flask-WTF.
