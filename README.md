@@ -48,7 +48,4 @@ With the given numbers I derive a relative measure to be able to then rank the r
 
 ## Technology Readiness Levels (TRL)
 Software projects are challenging due to the complexity of the product, nonlinear scaling of resources, measurement of project and product, initial uncertainty in project and product scope, and knowledge gained as a project evolves. Technology Readiness Levels (TRL) are a type of measurement system used to assess the maturity level of a particular technology.  By the completion of the project, STSTEM is at TRL 4, see table below:
-<img width="1164" alt="image" src="https://user-images.githubusercontent.com/56838325/181703781-2bed268c-9772-4c05-89c1-45a25af42b09.png">
-
-
-
+<img width="1014" alt="image" src="https://user-images.githubusercontent.com/56838325/181717264-9f63e572-8380-4307-a049-5240f1646cf1.png">
