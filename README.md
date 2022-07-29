@@ -73,11 +73,11 @@ The code has been refactored in several occasions. Below are some of the example
 * to
 <img width="1107" alt="image" src="https://user-images.githubusercontent.com/56838325/181736004-392e5c83-c48c-4ade-80b4-11527102a33e.png">
 
-### - Refactoring Jenkins Pipeline from compose to swarm
-* from 
+### - Refactoring Jenkins Pipeline from docker compose to adding  docker swarm
+* from having the docker compose stage
 <img width="535" alt="image" src="https://user-images.githubusercontent.com/56838325/181734231-3067cfdb-6678-430c-ba4e-f44ab2146729.png">
 
-* to 
+* to making a single step for swarm (the full pipeline can be viewed in the Jenkinsfile)
 <img width="505" alt="image" src="https://user-images.githubusercontent.com/56838325/181734308-53cde08d-f130-4d6a-b68b-0b2334ce91cd.png">
 
 The pipeline eventually ensures that the application setup is done including the configurations and necessariry installations from requirements.txt . The final step is to build the docker-compose, push the image on dockerhub and deploy the docker stack. The video includes more discussion and demonstration of the pipeline, among other things. 
