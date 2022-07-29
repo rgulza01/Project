@@ -19,6 +19,5 @@ I have worked in differnet iterations to implement product features, based on th
 <img width="1404" alt="image" src="https://user-images.githubusercontent.com/56838325/181693104-a0b059c9-e672-4e23-9bd2-b4b73464e667.png">
 
 ## Project Management 
-<img width="1243" alt="image" src="https://user-images.githubusercontent.com/56838325/181702307-d64e9709-2101-407c-8030-b214c619515a.png">
-
+<img width="1131" alt="image" src="https://user-images.githubusercontent.com/56838325/181702622-1d8c9164-8e87-44c4-848c-5108d209a4a2.png">
 
