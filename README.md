@@ -9,6 +9,7 @@ Video of the application (https://drive.google.com/drive/folders/1gDfpDnDfW4baTH
 
 ## Use cases:
 In the following section I present the use case diagram based on the initial requirements identified. The diagram has been used to get a bird's eye view of GF FLASK and provide a visualisation of the external and internal factors influencing the system, in addition to requirement gathering purposes of successive iterations and optimisations of GF FLASK, following A/B testing.
+<img width="941" alt="image" src="https://user-images.githubusercontent.com/56838325/181687042-740ce418-b1e8-4938-8aec-57ed271a86dd.png">
 
 <img width="961" alt="image" src="https://user-images.githubusercontent.com/56838325/181705304-d0eaeab0-9caa-4711-88d1-7787e28214e1.png">
 <img width="1381" alt="image" src="https://user-images.githubusercontent.com/56838325/181705353-2b3dccbd-e021-4c9e-bfbb-c42278a48235.png">
@@ -16,7 +17,6 @@ In the following section I present the use case diagram based on the initial req
 <img width="1348" alt="image" src="https://user-images.githubusercontent.com/56838325/181705849-6f6f9c72-a995-49c5-99ad-aa2f502e9a91.png">
 
 
-<img width="941" alt="image" src="https://user-images.githubusercontent.com/56838325/181687042-740ce418-b1e8-4938-8aec-57ed271a86dd.png">
 
 ## User stories 
 I have worked in differnet iterations to implement product features, based on their values, for a better understanding of why users might want a certain functionality.
