@@ -2,6 +2,8 @@ from application import db
 from application.models import *
 from application.forms import *
 
+#----------------------------------File used for testing the dataabse----------------------------------
+
 db.drop_all()
 db.create_all()
 
@@ -25,7 +27,6 @@ db.session.commit()
 
 #----------------------------------testing many to many----------------------------------
 
-#Something like this needs to happen when the user is updated
 previous_user3_name = user3.name 
 
 print("-------------------------------------")

@@ -4,6 +4,8 @@ from datetime import datetime
 from sqlalchemy import ForeignKey
 from application import db
 
+#Models updated from one to many to many to many 
+
 user_post = db.Table('user_post',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
     db.Column('post_id', db.Integer, db.ForeignKey('post.id'), primary_key=True),

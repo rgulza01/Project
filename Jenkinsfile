@@ -8,7 +8,6 @@ pipeline{
   stages{
     stage('setup'){
       steps{
-        // sh 'export DATABASE_URI=${DATABASE_URI}'
         sh 'export DATABASE_PASSWORD=${DATABASE_PASSWORD}'
         sh 'export SERVER_NAME=${SERVER_NAME}'
         sh 'export SECRET_KEY=${SECRET_KEY}'
@@ -21,7 +20,6 @@ pipeline{
     }
     stage('docker swarm'){
       steps{
-        //   check syntax for tags 
         sh "docker-compose build"
         sh "docker push radiagulzan/feature_2_image"
         sh "docker stack deploy --compose-file docker-compose.yaml stack_name"

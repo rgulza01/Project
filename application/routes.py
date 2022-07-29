@@ -59,6 +59,9 @@ def apost(id):
 	post=Post.query.get_or_404(id)
 	return render_template('apost.html', post_for_html=post)
 
+
+#-------------------------- under construction-------------------------
+
 @app.route("/login")
 def login():
 	return render_template('login.html')
@@ -67,7 +70,6 @@ def login():
 def logout():
 	return render_template('home.html')
 
-#-------------------------- under construction-------------------------
 @app.context_processor
 def base():
 	form = UserForm()
@@ -87,7 +89,10 @@ def filter():
 def update(id):
 	form = UserFormUpdate()
 	if request.method == "POST":
+		#checks if it's in the database first and if it is not it returns the custom 404 page
 		updated = User.query.get_or_404(id)
+
+		#updated also the names of the authors of the posts that belong to be user
 		previous_user_name = updated.name 
 		updated.name = form.name_box.data #new name
 		updated.email = form.email_box.data
@@ -128,7 +133,7 @@ def delete(id):
 def addnewpost():
 	form = PostForm()
 	if form.validate_on_submit():
-		#query to retrieve the user
+		#query to retrieve the user to check that the user is allowed to post, as in feature-2 login has still not been set
 		userToFind = User.query.filter_by(name=form.author_box.data).all()
 		post = Post(title=form.title_box.data, content=form.content_box.data, author=form.author_box.data, slug=form.slug_box.data, user=userToFind)
 		if db.session.query(User.id).filter_by(name=post.author).first() is None:
