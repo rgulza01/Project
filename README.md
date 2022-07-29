@@ -17,7 +17,6 @@ In the following section I present the use case diagram based on the initial req
 <img width="1348" alt="image" src="https://user-images.githubusercontent.com/56838325/181705849-6f6f9c72-a995-49c5-99ad-aa2f502e9a91.png">
 <img width="967" alt="image" src="https://user-images.githubusercontent.com/56838325/181707978-744fb8ab-a375-401d-a644-aaf0992513d9.png">
 <img width="1315" alt="image" src="https://user-images.githubusercontent.com/56838325/181707720-184305fc-4475-4430-a8bb-5ed170aa6f7b.png">
-<img width="960" alt="image" src="https://user-images.githubusercontent.com/56838325/181708748-9985984f-f0c9-4deb-a83e-84c32db97221.png">
 <img width="959" alt="image" src="https://user-images.githubusercontent.com/56838325/181708931-a824e0fe-2dc7-4a5d-991b-19a595dd7825.png">
 <img width="1267" alt="image" src="https://user-images.githubusercontent.com/56838325/181708491-76678db4-426e-4896-9144-3a0bf312e231.png">
 
