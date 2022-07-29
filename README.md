@@ -22,7 +22,7 @@ In the following section I present the use case diagram based on the initial req
 <img width="1255" alt="image" src="https://user-images.githubusercontent.com/56838325/181709937-46fc6dd1-c5e0-4d39-a082-708ad3a7448f.png">
 
 # Application video
-### The video of the application shows how the application has been deployed on the Jenkins pipeline and on Docker Swarm: (
+### Below is the video describing the application till feature 2. It also includes mention about how the application has been deployed on the Jenkins pipeline and on Docker Swarm: 
 https://drive.google.com/drive/folders/1gDfpDnDfW4baTHSugsVtHZDcIRwRToIk
 ### I have included a document with the console output from Jenkins.
 ### Docker images can be checked on hub:
