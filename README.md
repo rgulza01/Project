@@ -94,4 +94,7 @@ The code has been refactored in several occasions. Below are some of the example
 
 # Acknowledgements
 I would like to express my most sincere appreciation to Earl Gray - DevOps specialisation trainer - for pushing the boundaries of my capabilities, positively contributing to the project's growth since the idea's inception.
-I would also like to mention that the beautiful teal coloured html templates have been adopted from Gurupreeth Singh. I had the fortune of learning how to use opensource technologies such as Bootstrap to complete the rest of the application by creating templates with Flask-WTF.
+
+I would also like to mention that the beautiful teal coloured html templates have been adopted from Gurupreeth Singh. 
+
+I had the fortune of learning how to use opensource technologies such as Bootstrap to complete the rest of the application by creating templates with Flask-WTF by following lessons from Earl and from John from Codecademy.com 
