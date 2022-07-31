@@ -46,6 +46,7 @@ Software projects are challenging due to the complexity of the product, nonlinea
 <img width="1014" alt="image" src="https://user-images.githubusercontent.com/56838325/181717264-9f63e572-8380-4307-a049-5240f1646cf1.png">
 
 ## ORM relationship: many-to-many
+User will be used as reader as well. Therefore a post can have many readers and a user can post/read many posts.
 <img width="815" alt="image" src="https://user-images.githubusercontent.com/56838325/181731961-7db85938-91c7-4a68-a4b7-ea6130b3613d.png">
 
 # Refactoring
@@ -57,7 +58,7 @@ The code has been refactored in several occasions. Below are some of the example
 * to
 <img width="839" alt="image" src="https://user-images.githubusercontent.com/56838325/181733487-baabf3c2-3bed-4143-b49b-087b1158a973.png">
 
-### - Refactoring database relationship from one to many to many
+### - Refactoring database relationship from one to many-to-many
 * from 
 <img width="499" alt="image" src="https://user-images.githubusercontent.com/56838325/181737567-974dc77d-5417-4e0b-ba43-b11a2ae749c6.png">
 * to
