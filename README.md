@@ -69,8 +69,10 @@ I had suddently started getting the warning:
 create.py:13: SAWarning: relationship 'Post.users' will copy column user.id to column user_post.user_id, which conflicts with relationship(s): 'Post.user' (copies user.id to user_post.user_id), 'User.posts' (copies user.id to user_post.user_id). If this is not the intention, consider if these relationships should be linked with back_populates, or if viewonly=True should be applied to one or more if they are read-only. For the less common case that foreign key constraints are partially overlapping, the orm.foreign() annotation can be used to isolate the columns that should be written towards.   To silence this warning, add the parameter 'overlaps="posts,user"' to the 'Post.users' relationship. (Background on this error at: https://sqlalche.me/e/14/qzyx). 
 
 So I refactored the code from:
+
 <img width="608" alt="image" src="https://user-images.githubusercontent.com/56838325/182046927-21051f12-ab55-4d84-96f1-165f879d57ef.png">
 to:
+
 <img width="887" alt="image" src="https://user-images.githubusercontent.com/56838325/182046945-d9697c4f-35d5-4b79-8137-421e223adee8.png">
 
 ### - Refactoring nginx for the container that was not running despite the SUCCESS shown in the Jenkins pipeline
