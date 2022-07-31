@@ -58,7 +58,7 @@ The code has been refactored in several occasions. Below are some of the example
 * to
 <img width="839" alt="image" src="https://user-images.githubusercontent.com/56838325/181733487-baabf3c2-3bed-4143-b49b-087b1158a973.png">
 
-### - Refactoring database relationship from one to many-to-many
+### - Refactoring database relationship from one-to-one to many-to-many
 * from 
 <img width="499" alt="image" src="https://user-images.githubusercontent.com/56838325/181737567-974dc77d-5417-4e0b-ba43-b11a2ae749c6.png">
 * to
