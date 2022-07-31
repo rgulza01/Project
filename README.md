@@ -107,3 +107,5 @@ I would like to express my most sincere appreciation to Earl Gray - DevOps speci
 I would also like to mention that the beautiful teal coloured html templates have been adopted from Gurupreeth Singh. 
 
 I had the fortune of learning how to use opensource technologies such as Bootstrap to complete the rest of the application and creating UI templates with Flask-WTF by following lessons from Earl and from John from Codecademy.com 
+
+I would finally like to point out that the reddit flask community r/flask is a great platform to intereact with other Flask developers.
