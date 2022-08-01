@@ -4,12 +4,16 @@
    <h1 style="color:teal;">{{post_for_html.title }} </h1>
    <br>
  
-<div class="shadow p-3 mb-5 bg-body rounded">
     <h3> Author: {{post_for_html.author }} <br></h3>
-    <h6 style="color:darkcyan;"> {{post_for_html.date_posted }} <br></h6>
+    <h6 style="color:darkcyan;"> Posted on: {{post_for_html.date_posted }} <br></h6>
     {{post_for_html.content }} <br><br>
-</div>
- 
+    and many many more words......and many many more words............and many many more words
+    and many many more words.........and many many more words.........and many many more words......
+    and many many more words...
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+    <br>
+    <br>
 <a href="{{url_for('posts')}}" class="btn btn-outline-secondary btn-sm">Back to Blog</a>
 <a href="{{url_for('deletepost', id=post_for_html.id)}}" class="btn btn-outline-danger btn-sm">Delete</a>
 

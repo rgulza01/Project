@@ -1,0 +1,17 @@
+{%extends "base.html"%}
+{%block body%}
+   <br>
+   <h1 style="color:teal;">You searched for:</h1>
+   <br>
+   <h3>" {{ searched }} "</h3>
+   <br>
+   <br>
+   {% for p in posts %}
+   <div  class="shadow p-3 mb-5 bg-body rounded" >
+    <h2><a href="{{url_for('apost',id=p.id)}}">{{ p.title }} </a></h2>
+    <h4>by {{ p.author }}</h4><br>
+   </div>
+      
+   {%endfor%}
+
+{%endblock body%}

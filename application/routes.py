@@ -31,7 +31,8 @@ def register():
 			#checks if email is in database and if it is not, I add the user's info in the database
 			user = User.query.filter_by(email=form.email_box.data).first()
 			if user is None:
-				user = User(name=form.name_box.data, email=form.email_box.data)
+				hashed_password= generate_password_hash(form.password_box.data, "pbkdf2:sha256")
+				user = User(name=form.name_box.data, email=form.email_box.data, password=hashed_password)
 				db.session.add(user)
 				db.session.commit()
 				flash(f'Thank you for joining our gluten free community {form.name_box.data}! You should recieve a confirmation email soon', 'success')
@@ -59,29 +60,64 @@ def apost(id):
 	post=Post.query.get_or_404(id)
 	return render_template('apost.html', post_for_html=post)
 
+@app.context_processor
+def base():
+	form = SearchForm()
+	return dict(form=form)
+
+@app.route("/search", methods=["POST"])
+def search():
+	form=SearchForm()
+	posts = Post.query
+	if form.validate_on_submit():
+		#getting data from the submitted form
+		post_searched = form.searched.data
+		#querying the database for filtering by content
+		posts = posts.filter(Post.content.like('%' + post_searched + '%'))
+		posts = posts.order_by(Post.title).all()
+		return render_template("search.html", form=form, searched=post_searched, posts=posts)
+
+@app.route("/userposts/<int:id>", methods=["POST", "GET"])
+def userposts(id):
+	user = User.query.get_or_404(id)
+	posts = Post.query
+	post_searched = user.name
+	#querying the database for filtering by name
+	posts = posts.filter(Post.author.like('%' + post_searched + '%') )
+	posts = posts.order_by(Post.title).all()
+	return render_template("userposts.html", searched=post_searched, posts=posts)
+
 
 #-------------------------- under construction-------------------------
 
 @app.route("/login")
 def login():
-	return render_template('login.html')
+	form = LoginForm()
+	if request.method == 'POST':
+		if form.validate_on_submit():
+			#checks if email is in database and if it is not, I add the user's info in the database
+			user = User.query.filter_by(email=form.email_box.data).first()
+			if user is None:
+				hashed_password= generate_password_hash(form.password_box.data, "pbkdf2:sha256")
+				user = User(name=form.name_box.data, email=form.email_box.data, password=hashed_password)
+				db.session.add(user)
+				db.session.commit()
+				flash(f'Thank you for joining our gluten free community {form.name_box.data}! You should recieve a confirmation email soon', 'success')
+				return redirect(url_for('register')) 
+			elif(len(form.email_box.data) < 3):
+				flash(f'Email invalid', 'error')
+				return redirect(url_for('register'))
+			else:
+				flash(f'Your email address has already been used. Try registering in or use a different email address', 'error')
+				return redirect(url_for('register'))
+	return render_template('login.html', form = form)
 
 @app.route("/logout")
 def logout():
 	return render_template('home.html')
 
-@app.context_processor
-def base():
-	form = UserForm()
-	return dict(form=form)
 
-@app.route("/filter", methods=["POST"])
-def filter():
-	pass
 
-# @app.route("/singleuser")
-# def singleuserprofile():
-# 	return render_template('singleuser.html')
 # ----------------------------------------------------------------------
 #-----------------------------------------------------------CRUD--------------------------------------------------------
 
@@ -162,6 +198,5 @@ def deletepost(id):
 		flash(f'Oops! There was a problem deleting the post. Try again later', 'error')	
 		posts=Post.query.order_by(Post.date_posted)
 		return render_template('posts.html', posts_for_html=posts)
-
 
 

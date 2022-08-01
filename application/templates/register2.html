@@ -21,8 +21,6 @@
     <!-- action is about where we want to deliver, in which route. If you return it back it returns it to the same route/URL that delivered it -->
     <form method="POST", action="">
         {{form.hidden_tag()}}
-        <!-- label is the put into quotation mark e.g. "Enter your name here: " -->
-        <!-- could have been         {{form.name_box.label}} {{form.name_box}} -->
         {{form.name_box.label(class="form-label")}} 
         {%if form.name_box.error%}
             {{form.name_box(class="form-control is-invalid")}} 
@@ -46,6 +44,32 @@
             </div>
         {%else%}
             {{form.email_box(class="form-control")}} 
+        {%endif%}
+        <br>
+
+        {{form.password_box.label(class="form-label")}} 
+        {%if form.password_box.error%}
+            {{form.password_box(class="form-control is-invalid")}} 
+            <div class="invalid-feedback">
+                {%for error in form.password_box.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </div>
+        {%else%}
+            {{form.password_box(class="form-control")}} 
+        {%endif%}
+        <br>
+
+        {{form.password_box_again.label(class="form-label")}} 
+        {%if form.password_box_again.error%}
+            {{form.password_box_again(class="form-control is-invalid")}} 
+            <div class="invalid-feedback">
+                {%for error in form.password_box_again.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </div>
+        {%else%}
+            {{form.password_box_again(class="form-control")}} 
         {%endif%}
         <br>
 
