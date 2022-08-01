@@ -78,10 +78,14 @@ def base():
 @app.route("/search", methods=["POST"])
 def search():
 	form=SearchForm()
+	posts = Post.query
 	if form.validate_on_submit():
-		#post.searched doesnt exist
+		#getting data from the submitted form
 		post_searched = form.searched.data
-		return render_template("search.html", form=form, searched=post_searched)
+		#querying the database for filtering by content
+		posts = posts.filter(Post.content.like('%' + post_searched + '%'))
+		posts = posts.order_by(Post.title).all()
+		return render_template("search.html", form=form, searched=post_searched, posts=posts)
 
 # @app.route("/singleuser")
 # def singleuserprofile():
