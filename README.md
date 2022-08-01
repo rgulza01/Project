@@ -20,7 +20,7 @@ In the following section I present the use case diagram based on the initial req
 <img width="1057" alt="image" src="https://user-images.githubusercontent.com/56838325/182072247-c0be814a-94b0-46a9-8b81-2c5e655222f3.png">
 
 # Application video
-Below is the video describing the application. The video starts with the app as it was in feature-2 but ends by introducing components of feature-3. It also includes mention about how the application has been deployed on the Jenkins pipeline and on Docker Swarm: 
+Below is the video describing the application. It's a 7 minutes video that starts with the app as it was in feature-2 but ends by introducing components of feature-3. It also includes mention about how the application has been deployed on the Jenkins pipeline and on Docker Swarm: 
 https://drive.google.com/drive/folders/1gDfpDnDfW4baTHSugsVtHZDcIRwRToIk
 I have included a document with the console output from Jenkins.
 Docker images can be checked on hub:
