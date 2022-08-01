@@ -61,9 +61,9 @@ The code has been refactored in several occasions. Below are some of the example
 <img width="839" alt="image" src="https://user-images.githubusercontent.com/56838325/181733487-baabf3c2-3bed-4143-b49b-087b1158a973.png">
 
 ### - Refactoring database relationship from one-to-one to many-to-many
-* from 
+* from this view till feature-2
 <img width="499" alt="image" src="https://user-images.githubusercontent.com/56838325/181737567-974dc77d-5417-4e0b-ba43-b11a2ae749c6.png">
-* to
+* to this in feature-3
 <img width="519" alt="image" src="https://user-images.githubusercontent.com/56838325/181737620-4873e705-af7d-4e96-a620-2472f691a7bf.png">
 
 ### - Refactoring database relationship many-to-many
