@@ -104,9 +104,9 @@ The pipeline therefore ensures that the application setup is done including the 
 <img width="319" alt="image" src="https://user-images.githubusercontent.com/56838325/181735246-74704776-9269-416e-8ded-41069036bb99.png">
 
 ### - Refactoring dashabord with search bar working and by adding the functionality to view the posts by each user
-* before
+* in feature-2
 <img width="1398" alt="image" src="https://user-images.githubusercontent.com/56838325/182073935-1f506a3c-8c2b-4e0f-851e-7b6afe12f11f.png">
-* after
+* in feature-3
 <img width="1418" alt="image" src="https://user-images.githubusercontent.com/56838325/182071143-29eb5421-ddeb-435a-845d-99f973fcb090.png">
 
 ### - Refactoring for hashing password, added now during registration, to ease the login functionality:
