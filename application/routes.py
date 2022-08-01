@@ -59,17 +59,6 @@ def apost(id):
 	post=Post.query.get_or_404(id)
 	return render_template('apost.html', post_for_html=post)
 
-
-#-------------------------- under construction-------------------------
-
-@app.route("/login")
-def login():
-	return render_template('login.html')
-
-@app.route("/logout")
-def logout():
-	return render_template('home.html')
-
 @app.context_processor
 def base():
 	form = SearchForm()
@@ -93,9 +82,39 @@ def userposts(id):
 	posts = Post.query
 	post_searched = user.name
 	#querying the database for filtering by name
-	posts = posts.filter(Post.author.like('%' + post_searched + '%'))
+	posts = posts.filter(Post.author.like('%' + post_searched + '%') )
 	posts = posts.order_by(Post.title).all()
 	return render_template("userposts.html", searched=post_searched, posts=posts)
+
+
+#-------------------------- under construction-------------------------
+
+@app.route("/login")
+def login():
+	form = UserForm()
+	if request.method == 'POST':
+		if form.validate_on_submit():
+			#checks if email is in database and if it is not, I add the user's info in the database
+			user = User.query.filter_by(email=form.email_box.data).first()
+			if user is None:
+				user = User(name=form.name_box.data, email=form.email_box.data)
+				db.session.add(user)
+				db.session.commit()
+				flash(f'Thank you for joining our gluten free community {form.name_box.data}! You should recieve a confirmation email soon', 'success')
+				return redirect(url_for('register')) 
+			elif(len(form.email_box.data) < 3):
+				flash(f'Email invalid', 'error')
+				return redirect(url_for('register'))
+			else:
+				flash(f'Your email address has already been used. Try registering in or use a different email address', 'error')
+				return redirect(url_for('register'))
+	return render_template('login.html', form = form)
+
+@app.route("/logout")
+def logout():
+	return render_template('home.html')
+
+
 
 # ----------------------------------------------------------------------
 #-----------------------------------------------------------CRUD--------------------------------------------------------

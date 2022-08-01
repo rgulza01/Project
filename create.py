@@ -10,9 +10,9 @@ from application.forms import *
 db.drop_all()
 db.create_all()
 
-user1 =User(name = "Bismillah", email = "bismillah@live.it")
-user2 =User(name = "Bambi", email = "bambi@outlook.com")
-user3 =User(name = "Lily", email = "lily@outlook.com")
+user1 =User(name = "Bismillah", email = "bismillah@live.it", password="lalala")
+user2 =User(name = "Bambi", email = "bambi@outlook.com", password="lalala")
+user3 =User(name = "Lily", email = "lily@outlook.com", password="lalala")
 
 
 post1=Post(author=user1.name, title="An utterly vegan post", content="Vegan stories and more", slug="post1")
@@ -30,19 +30,19 @@ db.session.add_all([user1, user2, user3, post1, post2, post3])
 
 db.session.commit()
 
-#----------------------------------testing many to many----------------------------------
+#----------------------------------testing----------------------------------
 
 previous_user3_name = user3.name 
 
 print("-------------------------------------")
+
+print(user1.verify_password("lalala"))
+print("---------------------------------------------------------")
+
 print(f"{user3.name}'s followed posts:")
 for p in user3.posts:
     print(p)
 
-
-
-#-----------------------------Learning how to merge--------------------------
-#because of:
 new_user3_name = "Little Cupcake"
 user3.name = new_user3_name
 list_posts = Post.query.all()
@@ -53,6 +53,8 @@ for p in list_posts:
 db.session.commit()
 print(f"Should be {user3.name} But it's: ")
 print(post3.author)
+
+#-----------------------------Learning how to merge--------------------------
 
 # db.drop_all()
 # db.create_all()
