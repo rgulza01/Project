@@ -53,6 +53,7 @@
                           <th scope="col">Email</th>
                           <th scope="col">Update</th>
                           <th scope="col">Delete</th>
+                          <th scope="col">Posts by the user</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -63,6 +64,7 @@
                           <td>{{u.email}}</td>
                           <td><a class="btn btn-sm" style="background-color:rgb(0, 75, 93); color:whitesmoke;" href="{{ url_for('update', id = u.id)}}">Update</a></td>
                           <td><a class="btn btn-sm" style="background-color:rgb(0, 75, 93); color:whitesmoke;" href="{{ url_for('delete', id = u.id)}}">Delete</a></td>
+                          <td><a class="btn btn-sm" style="background-color:rgb(0, 75, 93); color:whitesmoke;" href="{{ url_for('userposts', id = u.id)}}">Posts</a></td>
                         </tr>
                         {%endfor%}
                         <tr>

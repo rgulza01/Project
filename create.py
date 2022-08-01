@@ -45,10 +45,10 @@ for p in user3.posts:
 #because of:
 new_user3_name = "Little Cupcake"
 user3.name = new_user3_name
-# list_posts = Post.query.all()
-# for p in list_posts:
-#     if p.author == previous_user3_name:
-#         p.author = new_user3_name
+list_posts = Post.query.all()
+for p in list_posts:
+    if p.author == previous_user3_name:
+        p.author = new_user3_name
 
 db.session.commit()
 print(f"Should be {user3.name} But it's: ")

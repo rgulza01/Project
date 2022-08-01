@@ -87,9 +87,16 @@ def search():
 		posts = posts.order_by(Post.title).all()
 		return render_template("search.html", form=form, searched=post_searched, posts=posts)
 
-# @app.route("/singleuser")
-# def singleuserprofile():
-# 	return render_template('singleuser.html')
+@app.route("/userposts/<int:id>", methods=["POST", "GET"])
+def userposts(id):
+	user = User.query.get_or_404(id)
+	posts = Post.query
+	post_searched = user.name
+	#querying the database for filtering by name
+	posts = posts.filter(Post.author.like('%' + post_searched + '%'))
+	posts = posts.order_by(Post.title).all()
+	return render_template("userposts.html", searched=post_searched, posts=posts)
+
 # ----------------------------------------------------------------------
 #-----------------------------------------------------------CRUD--------------------------------------------------------
 

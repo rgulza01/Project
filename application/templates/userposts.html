@@ -1,0 +1,15 @@
+{%extends "base.html"%}
+{%block body%}
+   <br>
+   <h1 style="color:teal;">All posts by {{ searched }} </h1>
+   <br>
+   <br>
+   <br>
+   {% for p in posts %}
+   <div  class="shadow p-3 mb-5 bg-body rounded" >
+    <h2><a href="{{url_for('apost',id=p.id)}}">{{ p.title }} </a></h2>
+   </div>
+      
+   {%endfor%}
+
+{%endblock body%}
