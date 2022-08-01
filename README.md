@@ -7,7 +7,7 @@ In the following section I present the use case diagram based on the initial req
 <img width="941" alt="image" src="https://user-images.githubusercontent.com/56838325/181687042-740ce418-b1e8-4938-8aec-57ed271a86dd.png">
 
 <img width="955" alt="image" src="https://user-images.githubusercontent.com/56838325/181744544-1d44692f-c236-411d-93f5-e2445d7dce5a.png">
-![Uploading image.png…]()
+<img width="1438" alt="image" src="https://user-images.githubusercontent.com/56838325/182073304-87027df0-0b0d-4d4e-bebb-e115cdc66a1a.png">
 <img width="967" alt="image" src="https://user-images.githubusercontent.com/56838325/181707978-744fb8ab-a375-401d-a644-aaf0992513d9.png">
 <img width="1381" alt="image" src="https://user-images.githubusercontent.com/56838325/181705353-2b3dccbd-e021-4c9e-bfbb-c42278a48235.png">
 <img width="1315" alt="image" src="https://user-images.githubusercontent.com/56838325/181707720-184305fc-4475-4430-a8bb-5ed170aa6f7b.png">
