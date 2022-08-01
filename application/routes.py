@@ -31,7 +31,8 @@ def register():
 			#checks if email is in database and if it is not, I add the user's info in the database
 			user = User.query.filter_by(email=form.email_box.data).first()
 			if user is None:
-				user = User(name=form.name_box.data, email=form.email_box.data)
+				hashed_password= generate_password_hash(form.password_box.data, "pbkdf2:sha256")
+				user = User(name=form.name_box.data, email=form.email_box.data, password=hashed_password)
 				db.session.add(user)
 				db.session.commit()
 				flash(f'Thank you for joining our gluten free community {form.name_box.data}! You should recieve a confirmation email soon', 'success')
@@ -91,13 +92,14 @@ def userposts(id):
 
 @app.route("/login")
 def login():
-	form = UserForm()
+	form = LoginForm()
 	if request.method == 'POST':
 		if form.validate_on_submit():
 			#checks if email is in database and if it is not, I add the user's info in the database
 			user = User.query.filter_by(email=form.email_box.data).first()
 			if user is None:
-				user = User(name=form.name_box.data, email=form.email_box.data, password=form.password_box.data)
+				hashed_password= generate_password_hash(form.password_box.data, "pbkdf2:sha256")
+				user = User(name=form.name_box.data, email=form.email_box.data, password=hashed_password)
 				db.session.add(user)
 				db.session.commit()
 				flash(f'Thank you for joining our gluten free community {form.name_box.data}! You should recieve a confirmation email soon', 'success')

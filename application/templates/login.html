@@ -19,18 +19,6 @@
 <div class="form">
     <form method="POST", action="">
         {{form.hidden_tag()}}
-        {{form.name_box.label(class="form-label")}} 
-        {%if form.name_box.error%}
-            {{form.name_box(class="form-control is-invalid")}} 
-            <div class="invalid-feedback">
-                {%for error in form.name_box.errors%}
-                    <span>{{error}}</span>
-                {%endfor%}
-            </div>
-        {%else%}
-            {{form.name_box(class="form-control")}} 
-        {%endif%}
-        <br>
 
         {{form.email_box.label(class="form-label")}} 
         {%if form.email_box.error%}
@@ -45,7 +33,19 @@
         {%endif%}
         <br>
 
-        {{form.submit_button(class="btn btn-primary")}}
+        {{form.password_box.label(class="form-label")}} 
+        {%if form.password_box.error%}
+            {{form.password_box(class="form-control is-invalid")}} 
+            <div class="invalid-feedback">
+                {%for error in form.password_box.errors%}
+                    <span>{{error}}</span>
+                {%endfor%}
+            </div>
+        {%else%}
+            {{form.password_box(class="form-control")}} 
+        {%endif%}
+        <br>
+        {{form.password_box(class="btn btn-primary")}}
     </form>   
 </div>
 

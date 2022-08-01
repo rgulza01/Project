@@ -31,6 +31,6 @@ class SearchForm(FlaskForm):
     submit = SubmitField("Submit")
 
 class LoginForm(FlaskForm):
-    name_box = StringField("The name or username used when registering: ", validators=[DataRequired(), Length(min=3, max=80)])
     email_box= StringField("The same email address used during registration: ", validators=[DataRequired(), Email()])
+    password_box = StringField("The password chosen during registration: ", validators=[DataRequired()])
     submit_button = SubmitField("Submit")
