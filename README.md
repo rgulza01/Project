@@ -10,8 +10,8 @@ In the following section I present the use case diagram based on the initial req
 <img width="1421" alt="image" src="https://user-images.githubusercontent.com/56838325/182073380-cfdbe14a-bfa0-4b4c-86f2-830b909d926d.png">
 
 <img width="967" alt="image" src="https://user-images.githubusercontent.com/56838325/181707978-744fb8ab-a375-401d-a644-aaf0992513d9.png">
-<img width="1381" alt="image" src="https://user-images.githubusercontent.com/56838325/181705353-2b3dccbd-e021-4c9e-bfbb-c42278a48235.png">
-<img width="1315" alt="image" src="https://user-images.githubusercontent.com/56838325/181707720-184305fc-4475-4430-a8bb-5ed170aa6f7b.png">
+<img width="1396" alt="image" src="https://user-images.githubusercontent.com/56838325/182073610-ca2b6515-49b1-444d-b141-af8160372e8e.png">
+
 <img width="959" alt="image" src="https://user-images.githubusercontent.com/56838325/181708931-a824e0fe-2dc7-4a5d-991b-19a595dd7825.png">
 <img width="1267" alt="image" src="https://user-images.githubusercontent.com/56838325/181708491-76678db4-426e-4896-9144-3a0bf312e231.png">
 <img width="966" alt="image" src="https://user-images.githubusercontent.com/56838325/181710190-f2c62d6b-c5ab-4881-872a-aa1be93f4536.png">
