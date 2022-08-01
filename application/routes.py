@@ -200,4 +200,3 @@ def deletepost(id):
 		return render_template('posts.html', posts_for_html=posts)
 
 
-

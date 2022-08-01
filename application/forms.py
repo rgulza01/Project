@@ -4,7 +4,6 @@ from wtforms import StringField, SubmitField, PasswordField, BooleanField, Valid
 from wtforms.widgets import TextArea 
 from wtforms.validators import DataRequired, Length, Email, EqualTo 
 
-#Forms used till feature-2. More forms might be added for feature-3
 
 class UserForm(FlaskForm):
     name_box = StringField("Enter your full name (this will also be the name you use to post very gluten free stories): ", validators=[DataRequired(), Length(min=3, max=80)])
