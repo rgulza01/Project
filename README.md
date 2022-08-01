@@ -16,6 +16,8 @@ In the following section I present the use case diagram based on the initial req
 <img width="1267" alt="image" src="https://user-images.githubusercontent.com/56838325/181708491-76678db4-426e-4896-9144-3a0bf312e231.png">
 <img width="966" alt="image" src="https://user-images.githubusercontent.com/56838325/181710190-f2c62d6b-c5ab-4881-872a-aa1be93f4536.png">
 <img width="1328" alt="image" src="https://user-images.githubusercontent.com/56838325/182071796-03736582-303e-4c11-b27b-68afdf897a4d.png">
+<img width="965" alt="image" src="https://user-images.githubusercontent.com/56838325/182072333-a84b6dba-fcb1-490a-9c7b-0f405e42cdab.png">
+<img width="1057" alt="image" src="https://user-images.githubusercontent.com/56838325/182072247-c0be814a-94b0-46a9-8b81-2c5e655222f3.png">
 
 # Application video
 Below is the video describing the application. The video starts with the app as it was in feature-2 but ends by introducing components of feature-3. It also includes mention about how the application has been deployed on the Jenkins pipeline and on Docker Swarm: 
