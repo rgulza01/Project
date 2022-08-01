@@ -4,6 +4,7 @@ coverage==6.*
 dnspython==2.*
 email-validator==1.*
 Flask==2.*
+Flask-Bootstrap4==4.*
 Flask-SQLAlchemy==2.*
 Flask-Testing==0.*
 flask-unittest==0.*

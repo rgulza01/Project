@@ -72,12 +72,16 @@ def logout():
 
 @app.context_processor
 def base():
-	form = UserForm()
+	form = SearchForm()
 	return dict(form=form)
 
-@app.route("/filter", methods=["POST"])
-def filter():
-	pass
+@app.route("/search", methods=["POST"])
+def search():
+	form=SearchForm()
+	if form.validate_on_submit():
+		#post.searched doesnt exist
+		post_searched = form.searched.data
+		return render_template("search.html", form=form, searched=post_searched)
 
 # @app.route("/singleuser")
 # def singleuserprofile():
