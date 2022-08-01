@@ -18,7 +18,7 @@ In the following section I present the use case diagram based on the initial req
 <img width="1255" alt="image" src="https://user-images.githubusercontent.com/56838325/181709937-46fc6dd1-c5e0-4d39-a082-708ad3a7448f.png">
 
 # Application video
-Below is the video describing the application till feature-2. It also includes mention about how the application has been deployed on the Jenkins pipeline and on Docker Swarm: 
+Below is the video describing the application. The video starts with the app as it was in feature-2 but ends by introducing components of feature-3. It also includes mention about how the application has been deployed on the Jenkins pipeline and on Docker Swarm: 
 https://drive.google.com/drive/folders/1gDfpDnDfW4baTHSugsVtHZDcIRwRToIk
 I have included a document with the console output from Jenkins.
 Docker images can be checked on hub:
@@ -100,6 +100,13 @@ The pipeline therefore ensures that the application setup is done including the 
 <img width="309" alt="image" src="https://user-images.githubusercontent.com/56838325/181735353-6d72aa05-597d-4ff0-83b0-510773b81d4e.png">
 <img width="381" alt="image" src="https://user-images.githubusercontent.com/56838325/181735044-32cf4c2a-132b-44f0-84f9-5b999047b2c2.png">
 <img width="319" alt="image" src="https://user-images.githubusercontent.com/56838325/181735246-74704776-9269-416e-8ded-41069036bb99.png">
+
+### - Refactoring dashabord with search bar working and by adding the functionality to view the posts by each user
+<img width="1418" alt="image" src="https://user-images.githubusercontent.com/56838325/182071143-29eb5421-ddeb-435a-845d-99f973fcb090.png">
+
+### - Refactoring for hashing password, added now during registration, to ease the login functionality:
+<img width="1027" alt="image" src="https://user-images.githubusercontent.com/56838325/182071249-9fc4fe8e-f157-4434-bd86-5760b2162ab8.png">
+<img width="925" alt="image" src="https://user-images.githubusercontent.com/56838325/182071346-6f8e969a-013b-47b4-a154-592cb5c25396.png">
 
 # Acknowledgements
 I would like to express my most sincere appreciation to Earl Gray - DevOps specialisation trainer - for pushing the boundaries of my capabilities, positively contributing to the project's growth since the idea's inception.
