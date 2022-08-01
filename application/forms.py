@@ -1,14 +1,16 @@
 
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField
+from wtforms import StringField, SubmitField, PasswordField, BooleanField, ValidationError
 from wtforms.widgets import TextArea 
-from wtforms.validators import DataRequired, Length, Email 
+from wtforms.validators import DataRequired, Length, Email, EqualTo 
 
 #Forms used till feature-2. More forms might be added for feature-3
 
 class UserForm(FlaskForm):
     name_box = StringField("Enter your full name (this will also be the name you use to post very gluten free stories): ", validators=[DataRequired(), Length(min=3, max=80)])
     email_box= StringField("Email address here: ", validators=[DataRequired(), Email()])
+    password_box= PasswordField("Choose a password: ", validators=[DataRequired(), EqualTo("password_box_again", message="Make sure you passwords match!")])
+    password_box_again =PasswordField("Write the same password again: ", validators=[DataRequired()])
     submit_button = SubmitField("Submit")
 
 class UserFormUpdate(FlaskForm):
