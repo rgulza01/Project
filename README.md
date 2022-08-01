@@ -107,6 +107,7 @@ The pipeline therefore ensures that the application setup is done including the 
 * in feature-2
 <img width="1398" alt="image" src="https://user-images.githubusercontent.com/56838325/182073935-1f506a3c-8c2b-4e0f-851e-7b6afe12f11f.png">
 * in feature-3
+
 <img width="1418" alt="image" src="https://user-images.githubusercontent.com/56838325/182071143-29eb5421-ddeb-435a-845d-99f973fcb090.png">
 
 ### - Refactoring for hashing password, added now during registration, to ease the login functionality:
