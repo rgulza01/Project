@@ -1,6 +1,6 @@
 # DevOps project for QA - GF FLASK
 ### by: Radia Gulzan
-A monolithic web application to help celiac people form a community where they can share gluten free recipes and stories about their gluten free life. Technologies utilised include: Azure database, Azure virtual machine, Jenkins, Docker, Docker-compose, Docker-Swarm, NGINX.
+A monolithic web application to help celiac people form a community where they can share gluten free recipes and stories about their gluten free life. Technologies utilised include: Azure database, Azure virtual machine, Jenkins, Docker, Docker-compose, Docker-Swarm and NGINX.
 
 ## Use cases:
 In the following section I present the use case diagram based on the initial requirements identified. The diagram has been used to get a bird's eye view of GF FLASK and provide a visualisation of the external and internal factors influencing the system, in addition to requirement gathering purposes of successive iterations and optimisations of GF FLASK, following A/B testing.
